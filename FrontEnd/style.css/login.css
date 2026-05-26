@@ -1,3 +1,4 @@
+/* Configurações Globais e Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +7,8 @@
 }
 
 body {
-    background-color: #1a1a1a;
+    /* Voltando para o azul do cadastro */
+    background: linear-gradient(90deg, #44a0da 0%, #b4e1ff 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,7 +23,7 @@ body {
     border-radius: 24px;
     padding: 40px;
     position: relative;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -42,8 +44,9 @@ body {
     margin-bottom: 20px;
 }
 
+/* Logo com o degradê azul da marca */
 .logo {
-    background: linear-gradient(135deg, #a800ff, #ff007f);
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
     color: white;
     font-size: 24px;
     font-weight: bold;
@@ -77,7 +80,7 @@ h2 {
     display: block;
     font-size: 14px;
     font-weight: 600;
-    color: #333;
+    color: #111111;
     margin-bottom: 8px;
 }
 
@@ -90,7 +93,7 @@ h2 {
 .icone {
     position: absolute;
     left: 15px;
-    color: #999;
+    color: #9aa0a6;
 }
 
 .input-box input {
@@ -101,17 +104,19 @@ h2 {
     background-color: #f8f9fa;
     font-size: 15px;
     outline: none;
-    transition: border-color 0.2s;
+    transition: 0.2s;
 }
 
+/* Foco azul */
 .input-box input:focus {
-    border-color: #a800ff;
+    border-color: #2181BD;
+    background-color: #fff;
 }
 
 .ver-senha {
     position: absolute;
     right: 15px;
-    color: #999;
+    color: #9aa0a6;
     cursor: pointer;
 }
 
@@ -131,18 +136,24 @@ h2 {
     cursor: pointer;
 }
 
-.esqueci {
-    color: #8a2be2;
-    text-decoration: none;
-    font-weight: 500;
+.lembrar input {
+    accent-color: #2181BD;
 }
 
+/* Link esqueci a senha em azul */
+.esqueci {
+    color: #2181BD;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Botão Entrar com degradê azul */
 .btn-entrar {
     width: 100%;
     padding: 14px;
     border: none;
     border-radius: 12px;
-    background: linear-gradient(90deg, #a800ff, #ff007f);
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
     color: white;
     font-size: 16px;
     font-weight: 600;
@@ -152,6 +163,26 @@ h2 {
 
 .btn-entrar:hover {
     opacity: 0.9;
+}
+
+.cadastro {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #64748b;
+    text-align: center;
+}
+
+.cadastro a {
+    color: #2181BD;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.cadastro a:hover {
+    /* Efeito de destaque ao passar o mouse */
+    color: #6DADD8;
+    text-decoration: underline;
 }
 
 .linha {
@@ -166,7 +197,7 @@ h2 {
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: #e0e0e0;
+    background-color: #e2e8f0;
     z-index: 1;
 }
 
@@ -174,7 +205,7 @@ h2 {
     position: relative;
     background-color: #ffffff;
     padding: 0 15px;
-    color: #888;
+    color: #94a3b8;
     font-size: 13px;
     z-index: 2;
 }
@@ -191,6 +222,7 @@ h2 {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    /* Espaço entre a imagem e o texto */
     padding: 12px;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
@@ -199,30 +231,16 @@ h2 {
     font-weight: 600;
     color: #333;
     cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.btn-rede:hover {
-    background-color: #f7f9fa;
-    border-color: #ccc;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    transition: 0.2s;
 }
 
 .btn-rede img {
-    display: block;
-    width: 18px;        
-    height: 18px;         
-    object-fit: contain;  
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
 }
 
-
-.cadastro {
-    font-size: 14px;
-    color: #333;
-}
-
-.cadastro a {
-    color: #8a2be2;
-    text-decoration: none;
-    font-weight: 600;
+.btn-rede:hover {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
 }

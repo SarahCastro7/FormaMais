@@ -1,67 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('.signup-form');
-    const nameInput = document.getElementById('name');
-    const phoneInput = document.getElementById('phone');
+    const form = document.querySelector('#loginForm') || document.querySelector('.signup-form');
+    if (!form) return;
+
     const passwordInput = document.getElementById('password');
-    const confirmPasswordInput = document.getElementById('confirm-password');
-    const passwordToggle = document.querySelector('.password-toggle');
-    const validationBubble = document.querySelector('.validation-bubble');
+    const toggleBtn = document.getElementById('togglePassword') || document.querySelector('.password-toggle');
 
-    nameInput.addEventListener('input', () => {
-        if (nameInput.value.trim() !== "") {
-            validationBubble.style.display = 'none';
-        } else {
-            validationBubble.style.display = 'block';
-        }
-    });
+    if (toggleBtn && passwordInput) {
+        toggleBtn.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
 
+            toggleBtn.classList.toggle('fa-eye');
+            toggleBtn.classList.toggle('fa-eye-slash');
+        });
+    }
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, "");
+            if (value.length > 11) value = value.slice(0, 11);
 
-    passwordToggle.addEventListener('click', () => {
-        const isPassword = passwordInput.getAttribute('type') === 'password';
-        
-        passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
-        
-        passwordToggle.style.opacity = isPassword ? '1' : '0.5';
-    });
+            if (value.length > 0) value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+            if (value.length > 9) value = `${value.slice(0, 10)}-${value.slice(10)}`;
 
+            e.target.value = value;
+        });
+    }
 
-    phoneInput.addEventListener('input', (e) => {
-        let value = e.target.value.replace(/\D/g, ""); 
-        
-        if (value.length > 0) {
-            value = `(${value}`;
-        }
-        if (value.length > 3) {
-            value = `${value.slice(0, 3)}) ${value.slice(3)}`;
-        }
-        if (value.length > 10) {
-            value = `${value.slice(0, 10)}-${value.slice(10, 14)}`; 
-        }
-        
-        e.target.value = value;
-    });
-
-
+    // --- SUBMIT DO FORMULÁRIO ---
     form.addEventListener('submit', (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
-        if (passwordInput.value !== confirmPasswordInput.value) {
-            alert('As senhas não coincidem. Por favor, verifique.');
-            confirmPasswordInput.focus();
+        const confirmPass = document.getElementById('confirm-password');
+        if (confirmPass && passwordInput.value !== confirmPass.value) {
+            alert('As senhas não coincidem!');
             return;
         }
 
-        const formData = {
-            nome: nameInput.value,
-            email: document.getElementById('email').value,
-            telefone: phoneInput.value,
-            senha: passwordInput.value,
-            novidadesEmail: document.getElementById('newsletter').checked
-        };
+        const email = document.getElementById('email').value;
+        const password = passwordInput.value;
 
-        console.log('Dados prontos para envio ao servidor:', formData);
-        alert('Conta criada com sucesso! (Verifique o console do navegador)');
-        
-       
+        console.log('Dados capturados:', { email, password });
+        alert('Pronto para o Back-end! Verifique o console.');
     });
 });
