@@ -69,7 +69,6 @@ body {
     font-size: 14px;
 }
 
-/* Estrutura do Formulário e Inputs */
 .signup-form {
     display: flex;
     flex-direction: column;
@@ -111,7 +110,6 @@ body {
     background-color: #fff;
 }
 
-/* Ícones dentro dos Inputs */
 .input-icon {
     position: absolute;
     left: 15px;
@@ -130,7 +128,6 @@ body {
     cursor: pointer;
 }
 
-/* Simulação do balão "Preencha este campo" */
 .validation-bubble {
     position: absolute;
     right: -10px;
@@ -143,10 +140,9 @@ body {
     box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     z-index: 10;
     pointer-events: none;
-    display: block; /* Mude para 'none' se quiser esconder e usar apenas o nativo do HTML */
-}
+    display: block; 
 
-/* Checkboxes */
+}
 .checkbox-group {
     display: flex;
     align-items: flex-start;
@@ -179,7 +175,6 @@ body {
     text-decoration: underline;
 }
 
-/* Botão de Enviar (Criar Conta) */
 .submit-btn {
     width: 100%;
     padding: 15px;
