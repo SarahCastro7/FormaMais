@@ -1,0 +1,210 @@
+/* Configurações Globais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #7a1b88 0%, #a81169 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container do Card/Modal */
+.modal-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 24px;
+    padding: 40px 30px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Botão de fechar (X) */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Logo e Cabeçalho */
+.modal-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #a81cbe 0%, #e6107b 100%);
+    border-radius: 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.modal-header h2 {
+    font-size: 24px;
+    color: #111111;
+    font-weight: 700;
+}
+
+.modal-header p {
+    color: #707070;
+    font-size: 14px;
+}
+
+/* Estrutura do Formulário e Inputs */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111111;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 14px 14px 14px 45px;
+    border: 1px solid #e2e8f0;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-wrapper input:focus {
+    border-color: #a81cbe;
+    background-color: #fff;
+}
+
+/* Ícones dentro dos Inputs */
+.input-icon {
+    position: absolute;
+    left: 15px;
+    width: 20px;
+    height: 20px;
+    color: #9aa0a6;
+    pointer-events: none;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    width: 20px;
+    height: 20px;
+    color: #9aa0a6;
+    cursor: pointer;
+}
+
+/* Simulação do balão "Preencha este campo" */
+.validation-bubble {
+    position: absolute;
+    right: -10px;
+    bottom: -35px;
+    background: #ffffff;
+    border: 1px solid #777;
+    padding: 4px 8px;
+    font-size: 11px;
+    color: #000;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    z-index: 10;
+    pointer-events: none;
+    display: block; /* Mude para 'none' se quiser esconder e usar apenas o nativo do HTML */
+}
+
+/* Checkboxes */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    accent-color: #a81cbe;
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    font-size: 13px;
+    color: #333333;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.checkbox-group label a {
+    color: #911cb4;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.checkbox-group label a:hover {
+    text-decoration: underline;
+}
+
+/* Botão de Enviar (Criar Conta) */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(90deg, #8b23cf 0%, #df0c76 100%);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: opacity 0.2s;
+}
+
+.submit-btn:hover {
+    opacity: 0.95;
+}
+
+a{
+    text-decoration: none;
+    color: #911cb4;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+p{
+    margin-top: 10px;
+}
