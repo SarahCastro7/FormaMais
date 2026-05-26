@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(180deg, #7a1b88 0%, #a81169 100%);
+    background: linear-gradient(90deg, #44a0da 0%, #b4e1ff 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -47,15 +47,15 @@ body {
 .logo {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #a81cbe 0%, #e6107b 100%);
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    color: white;
     border-radius: 16px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    color: white;
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin: 0 auto 15px;
 }
 
 .modal-header h2 {
@@ -95,35 +95,33 @@ body {
 
 .input-wrapper input {
     width: 100%;
-    padding: 14px 14px 14px 45px;
+    padding: 14px 14px 14px 42px;
+    /* Espaço para o ícone na esquerda */
     border: 1px solid #e2e8f0;
     background-color: #f8f9fa;
     border-radius: 12px;
     font-size: 14px;
     color: #333;
     outline: none;
-    transition: border-color 0.2s;
+    transition: 0.2s;
 }
 
 .input-wrapper input:focus {
-    border-color: #a81cbe;
+    border-color: #2181BD;
     background-color: #fff;
 }
 
 .input-icon {
     position: absolute;
     left: 15px;
-    width: 20px;
-    height: 20px;
     color: #9aa0a6;
-    pointer-events: none;
+    font-size: 14px;
+    /* Tamanho do ícone */
 }
 
 .password-toggle {
     position: absolute;
     right: 15px;
-    width: 20px;
-    height: 20px;
     color: #9aa0a6;
     cursor: pointer;
 }
@@ -154,7 +152,7 @@ body {
     width: 16px;
     height: 16px;
     margin-top: 2px;
-    accent-color: #a81cbe;
+    accent-color: #2181BD;
     cursor: pointer;
 }
 
@@ -178,7 +176,7 @@ body {
 .submit-btn {
     width: 100%;
     padding: 15px;
-    background: linear-gradient(90deg, #8b23cf 0%, #df0c76 100%);
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
     border: none;
     border-radius: 12px;
     color: white;
@@ -186,20 +184,26 @@ body {
     font-weight: 600;
     cursor: pointer;
     margin-top: 10px;
-    transition: opacity 0.2s;
+    transition: 0.2s;
 }
 
 .submit-btn:hover {
     opacity: 0.95;
 }
 
-a{
-    text-decoration: none;
-    color: #911cb4;
+a {
+    color: #2181BD;
     text-decoration: none;
     font-weight: 600;
 }
 
-p{
-    margin-top: 10px;
+a:hover {
+    text-decoration: underline;
+}
+
+.modal-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #707070;
 }
