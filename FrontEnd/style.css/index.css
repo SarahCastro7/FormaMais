@@ -1,0 +1,316 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*--------------- NAVBAR ------------*/
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+}
+
+/* Estilo do Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1C2B3E
+}
+
+.logo-text span {
+    color: #80CBF3
+}
+
+/* Links de Navegação */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #1C2B3E
+}
+
+/* Ações e Botão */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.btn-login {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.btn-cta {
+    text-decoration: none;
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
+}
+
+.btn-cta:hover {
+    opacity: 0.9;
+}
+
+/* ------------ INICIO ------------------*/
+
+.hero {
+    background: #dceffa;
+    padding: 80px 8%;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.badge {
+    background: white;
+    padding: 6px 15px;
+    border-radius: 50px;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    border: 1px solid #e0eff7;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--dark-blue);
+}
+
+.hero-content h1 span {
+    color: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+}
+
+.hero-content p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    max-width: 500px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 10px 20px #2181bd33;
+}
+
+.btn-secondary {
+    background: white;
+    color: #3C678E;
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid #d0e4f0;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 40px;
+    border-top: 1px solid #d0e4f0;
+    padding-top: 30px;
+}
+
+.stat-item h3 {
+    font-size: 1.5rem;
+    color: #1C2B3E;
+    margin: 0;
+}
+
+.stat-item p {
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.img-wrapper {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px #0500311a;
+}
+
+.img-wrapper img {
+    width: 100%;
+    display: block;
+}
+
+.badge i {
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+
+.badge span {
+  vertical-align: middle;
+}
+
+/*---------------- FOOTER -----------------*/
+
+.footer {
+    background-color: #0B1320; /* Tom de azul escuro da imagem */
+    color: #fff;
+    padding: 80px 8% 40px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo do Logo no Footer */
+.footer-brand .logo {
+    margin-bottom: 20px;
+}
+
+.footer-brand .logo-text {
+    color: #fff; /* Texto branco no fundo escuro */
+}
+
+.footer-desc {
+    color: #94A3B8; /* Cinza azulado suave */
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    max-width: 300px;
+}
+
+/* Redes Sociais */
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #1E293B;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+
+.social-links a:hover {
+    background: linear-gradient(90deg, #2181BD, #6DADD8);
+    transform: translateY(-3px);
+}
+
+/* Colunas de Links */
+.footer-links h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #94A3B8;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #80CBF3;
+    padding-left: 5px;
+}
+
+/* Parte de baixo */
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #1E293B;
+    text-align: center;
+    color: #64748B;
+    font-size: 0.85rem;
+}

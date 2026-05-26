@@ -1,0 +1,189 @@
+/* Configurações Globais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(90deg, #44a0da 0%, #b4e1ff 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container do Card/Modal */
+.modal-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 24px;
+    padding: 40px 30px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Botão de fechar (X) */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Logo e Cabeçalho */
+.modal-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    color: white;
+    border-radius: 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 auto 15px;
+}
+
+.modal-header h2 {
+    font-size: 24px;
+    color: #111111;
+    font-weight: 700;
+}
+
+.modal-header p {
+    color: #707070;
+    font-size: 14px;
+}
+
+/* Estrutura do Formulário e Inputs */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111111;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 14px 14px 14px 42px;
+    /* Espaço para o ícone na esquerda */
+    border: 1px solid #e2e8f0;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: 0.2s;
+}
+
+.input-wrapper input:focus {
+    border-color: #2181BD;
+    background-color: #fff;
+}
+
+/* Ícones Simplificados (Font Awesome) */
+.input-icon {
+    position: absolute;
+    left: 15px;
+    color: #9aa0a6;
+    font-size: 14px;
+    /* Tamanho do ícone */
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    color: #9aa0a6;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Checkboxes */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    accent-color: #2181BD;
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    font-size: 13px;
+    color: #333333;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+/* Botões e Links */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.submit-btn:hover {
+    opacity: 0.95;
+}
+
+a {
+    color: #2181BD;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.modal-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #707070;
+}

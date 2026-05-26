@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Forma+</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./style.css/cadastro.css">
+</head>
+<body>
+
+    <div class="modal-container">
+        <button class="close-btn">&times;</button>
+
+        <div class="modal-header">
+            <div class="logo">F+</div>
+            <h2>Crie sua conta</h2>
+            <p>Comece sua jornada profissional hoje</p>
+        </div>
+
+        <form class="signup-form">
+            <div class="input-group">
+                <label for="name">Nome completo</label>
+                <div class="input-wrapper">
+                    <i class="fa-regular fa-user input-icon"></i>
+                    <input type="text" id="name" placeholder="Seu nome" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <div class="input-wrapper">
+                    <i class="fa-regular fa-envelope input-icon"></i>
+                    <input type="email" id="email" placeholder="seu@email.com" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="phone">Telefone</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-phone input-icon"></i>
+                    <input type="tel" id="phone" placeholder="(00) 00000-0000">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                    <i class="fa-regular fa-eye password-toggle"></i>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="confirm-password">Confirmar senha</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-shield-halved input-icon"></i>
+                    <input type="password" id="confirm-password" placeholder="••••••••" required>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">Eu aceito os <a href="#">termos de uso</a> e a <a href="#">política de privacidade</a></label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="newsletter">
+                <label for="newsletter">Quero receber novidades e ofertas por email</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Criar Conta Gratuitamente</button>
+        </form>
+
+        <div class="modal-footer">
+            <p>Já possui uma conta? <a href="login.html">Entrar</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

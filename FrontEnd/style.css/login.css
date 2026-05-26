@@ -1,0 +1,246 @@
+/* Configurações Globais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    /* Voltando para o azul do cadastro */
+    background: linear-gradient(90deg, #44a0da 0%, #b4e1ff 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.fechar {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+.topo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Logo com o degradê azul da marca */
+.logo {
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+}
+
+h2 {
+    color: #111111;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.subtitulo {
+    color: #777777;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.campo {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111111;
+    margin-bottom: 8px;
+}
+
+.input-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icone {
+    position: absolute;
+    left: 15px;
+    color: #9aa0a6;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 14px 15px 14px 45px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: #f8f9fa;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s;
+}
+
+/* Foco azul */
+.input-box input:focus {
+    border-color: #2181BD;
+    background-color: #fff;
+}
+
+.ver-senha {
+    position: absolute;
+    right: 15px;
+    color: #9aa0a6;
+    cursor: pointer;
+}
+
+.opcoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.lembrar {
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.lembrar input {
+    accent-color: #2181BD;
+}
+
+/* Link esqueci a senha em azul */
+.esqueci {
+    color: #2181BD;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Botão Entrar com degradê azul */
+.btn-entrar {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-entrar:hover {
+    opacity: 0.9;
+}
+
+.cadastro {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #64748b;
+    text-align: center;
+}
+
+.cadastro a {
+    color: #2181BD;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.cadastro a:hover {
+    /* Efeito de destaque ao passar o mouse */
+    color: #6DADD8;
+    text-decoration: underline;
+}
+
+.linha {
+    margin: 25px 0;
+    position: relative;
+}
+
+.linha::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #e2e8f0;
+    z-index: 1;
+}
+
+.linha span {
+    position: relative;
+    background-color: #ffffff;
+    padding: 0 15px;
+    color: #94a3b8;
+    font-size: 13px;
+    z-index: 2;
+}
+
+.redes {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.btn-rede {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* Espaço entre a imagem e o texto */
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-rede img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.btn-rede:hover {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+}
