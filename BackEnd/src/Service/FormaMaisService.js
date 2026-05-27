@@ -8,7 +8,7 @@ class FormaMaisService {
             const result = await pool.query (
                 'SELECT * FROM forma_mais'
             );
- 
+            return result.rows;
         } catch (error) {
             console.error('erro ao listar forma_mais:', error);
             throw new Error('erro ao listar forma_mais'
@@ -22,6 +22,7 @@ class FormaMaisService {
                 'SELECT * FROM forma_mais WHERE id = $1',
                 [id]
             );
+            return result.rows[0];
         } catch (error) {
             console.error('erro ao buscar forma_mais por id:', error);
             throw new Error('erro ao buscar forma_mais por id');
@@ -35,6 +36,7 @@ class FormaMaisService {
                 'INSERT INTO forma_mais (nome) VALUES ($1) RETURNING *',
                 [nome]
             );
+            return result.rows[0];
   
         } catch (error) {
             console.error('erro ao criar forma_mais:', error);
@@ -48,7 +50,7 @@ class FormaMaisService {
                 'UPDATE forma_mais SET nome = $1 WHERE id = $2 RETURNING *',
                 [nome, id]
             );
-            
+            return result.rows[0];
         } catch (error) {
             console.error('erro ao atualizar forma_mais:', error);
             throw new Error('erro ao atualizar forma_mais');
@@ -62,6 +64,7 @@ class FormaMaisService {
                 'UPDATE forma_mais SET nome = $1 WHERE id = $2 RETURNING *',
                 [nome, id]
             );
+            return result.rows[0];
 
         } catch (error) {
             console.error('erro ao atualizar forma_mais:', error);
@@ -75,7 +78,7 @@ class FormaMaisService {
                 'DELETE FROM forma_mais WHERE id = $1 RETURNING *',
                 [id]
             );
-        
+            return result.rows[0];
         } catch (error) {
             console.error('erro ao excluir forma_mais:', error);
             throw new Error('erro ao excluir forma_mais');
