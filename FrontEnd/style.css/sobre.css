@@ -1,24 +1,13 @@
- /* Variáveis de Cores e Estilos Globais */
-:root {
-    --primary-gradient: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
-    --text-dark: #1f2937;
-    --text-light: #6b7280;
-    --bg-light: #ffffff;
-    --bg-card-solid: #f0f9ff;
-    --accent-purple: #2181BD;
-    --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--font-main);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-    background-color: var(--bg-light);
-    color: var(--text-dark);
+    background-color: #ffffff;
+    color: #1f2937;
     line-height: 1.6;
 }
 
@@ -118,6 +107,7 @@ body {
 /* Seções Globais */
 section {
     padding: 80px 0;
+    background: #f7f7f7;
 }
 
 .section-header {
@@ -129,19 +119,19 @@ section {
 .section-header h2 {
     font-size: 2.5rem;
     margin-bottom: 15px;
-    color: var(--text-dark);
+    color: #1f2937;
 }
 
 .section-header h2 .highlight {
     color: transparent;
-    background: var(--primary-gradient);
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
     -webkit-background-clip: text;
     background-clip: text;
 }
 
 .section-header p {
     font-size: 1.1rem;
-    color: var(--text-light);
+    color: #6b7280;
 }
 
 /* Seção Sobre (Stats) */
@@ -152,7 +142,7 @@ section {
 }
 
 .stat-card {
-    background-color: var(--bg-card-solid);
+    background-color: #f0f9ff;
     padding: 40px 20px;
     border-radius: 16px;
     text-align: center;
@@ -165,7 +155,7 @@ section {
 
 .stat-icon {
     font-size: 2.2rem;
-    color: var(--accent-purple);
+    color: #2181BD;
     margin-bottom: 15px;
     display: flex;
     justify-content: center;
@@ -174,12 +164,12 @@ section {
 
 .stat-card h3 {
     font-size: 2.2rem;
-    color: var(--accent-purple);
+    color: #2181BD;
     margin-bottom: 5px;
 }
 
 .stat-card p {
-    color: var(--text-light);
+    color: #6b7280;
     font-weight: 500;
 }
 
@@ -210,18 +200,26 @@ section {
     margin-bottom: 25px;
 }
 
-.icon-blue { background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%); }
-.icon-magenta { background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%); }
-.icon-orange { background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%); }
+.icon-blue {
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+}
+
+.icon-magenta {
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+}
+
+.icon-orange {
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+}
 
 .pillar-card h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
-    color: var(--text-dark);
+    color: #1f2937;
 }
 
 .pillar-card p {
-    color: var(--text-light);
+    color: #6b7280;
     font-size: 0.95rem;
 }
 
@@ -233,7 +231,7 @@ section {
 }
 
 .team-card {
-    background-color: var(--bg-card-solid);
+    background-color: #f0f9ff;
     padding: 40px 30px;
     border-radius: 16px;
     text-align: center;
@@ -245,7 +243,7 @@ section {
     border-radius: 50%;
     margin: 0 auto 20px auto;
     border: 4px solid white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
@@ -257,19 +255,19 @@ section {
 
 .team-card h3 {
     font-size: 1.3rem;
-    color: var(--text-dark);
+    color: #1f2937;
     margin-bottom: 5px;
 }
 
 .team-role {
-    color: var(--accent-purple);
+    color: #2181BD;
     font-weight: 600;
     font-size: 0.9rem;
     margin-bottom: 15px;
 }
 
 .team-card p {
-    color: var(--text-light);
+    color: #6b7280;
     font-size: 0.95rem;
 }
 
@@ -278,7 +276,107 @@ section {
     .nav-links {
         display: none;
     }
+
     .section-header h2 {
         font-size: 2rem;
     }
+}
+
+
+/*---------------- FOOTER -----------------*/
+
+.footer {
+    background-color: #0B1320;
+    color: #fff;
+    padding: 80px 8% 40px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo do Logo no Footer */
+.footer-brand .logo {
+    margin-bottom: 20px;
+}
+
+.footer-brand .logo-text {
+    color: #fff;
+
+}
+
+.footer-desc {
+    color: #94A3B8;
+
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    max-width: 300px;
+}
+
+/* Redes Sociais */
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #1E293B;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+
+.social-links a:hover {
+    background: linear-gradient(90deg, #2181BD, #6DADD8);
+    transform: translateY(-3px);
+}
+
+/* Colunas de Links */
+.footer-links h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #94A3B8;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #80CBF3;
+    padding-left: 5px;
+}
+
+/* Parte de baixo */
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #1E293B;
+    text-align: center;
+    color: #64748B;
+    font-size: 0.85rem;
 }
