@@ -1,4 +1,22 @@
-/* Seção Geral de Depoimentos */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 200px; 
+  }
+  
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
 .testimonials-section {
     width: 100%;
     max-width: 1200px;
@@ -109,4 +127,190 @@
 .user-details span {
     font-size: 0.85rem;
     color: #9ca3af;
+}
+
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1C2B3E
+}
+
+.logo-text span {
+    color: #80CBF3
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #1C2B3E
+}
+
+/* Ações e Botão */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.btn-login {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.btn-cta {
+    text-decoration: none;
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
+}
+
+.btn-cta:hover {
+    opacity: 0.9;
+}
+
+
+.footer {
+    background-color: #0B1320;
+    color: #fff;
+    padding: 80px 8% 40px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo do Logo no Footer */
+.footer-brand .logo {
+    margin-bottom: 20px;
+}
+
+.footer-brand .logo-text {
+    color: #fff;
+   
+}
+
+.footer-desc {
+    color: #94A3B8;
+    
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    max-width: 300px;
+}
+
+/* Redes Sociais */
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #1E293B;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+
+.social-links a:hover {
+    background: linear-gradient(90deg, #2181BD, #6DADD8);
+    transform: translateY(-3px);
+}
+
+/* Colunas de Links */
+.footer-links h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #94A3B8;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #80CBF3;
+    padding-left: 5px;
+}
+
+/* Parte de baixo */
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #1E293B;
+    text-align: center;
+    color: #64748B;
+    font-size: 0.85rem;
 }
