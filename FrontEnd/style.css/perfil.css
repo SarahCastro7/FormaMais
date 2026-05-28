@@ -18,7 +18,8 @@
 
 
 body {
-    background-color:#dceffa;;
+    background-color: #dceffa;
+    ;
     color: #333333;
     display: flex;
     justify-content: center;
@@ -77,7 +78,8 @@ body {
     flex-wrap: wrap;
 }
 
-.coluna-esquerda, .coluna-direita {
+.coluna-esquerda,
+.coluna-direita {
     flex: 1;
     min-width: 320px;
 }
@@ -101,9 +103,17 @@ body {
     flex-shrink: 0;
 }
 
-.icone-box.rosa { background-color: #e25cdd; }
-.icone-box.azul { background-color: #108ee9; }
-.icone-box.laranja { background-color: #f26422; }
+.icone-box.rosa {
+    background-color: #e25cdd;
+}
+
+.icone-box.azul {
+    background-color: #108ee9;
+}
+
+.icone-box.laranja {
+    background-color: #f26422;
+}
 
 .texto-beneficio h3 {
     font-size: 16px;
@@ -124,7 +134,7 @@ body {
     border-radius: 16px;
     padding: 20px;
     max-width: 380px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 }
 
 .topo-recentes {
@@ -290,7 +300,8 @@ body {
     gap: 15px;
 }
 
-.btn-recusar, .btn-aceitar {
+.btn-recusar,
+.btn-aceitar {
     flex: 1;
     padding: 14px;
     border-radius: 12px;
@@ -316,12 +327,18 @@ body {
     color: white;
 }
 
-.btn-recusar:active, .btn-aceitar:active {
+.btn-recusar:active,
+.btn-aceitar:active {
     transform: scale(0.97);
 }
 
-.btn-recusar:hover { background-color: #f5f5f5; }
-.btn-aceitar:hover { opacity: 0.9; }
+.btn-recusar:hover {
+    background-color: #f5f5f5;
+}
+
+.btn-aceitar:hover {
+    opacity: 0.9;
+}
 
 .swipe-esquerda {
     transform: translateX(-150px) rotate(-10deg);
@@ -334,8 +351,14 @@ body {
 }
 
 @media (max-width: 768px) {
-    .conteudo { flex-direction: column; }
-    .coluna-esquerda, .coluna-direita { width: 100%; }
+    .conteudo {
+        flex-direction: column;
+    }
+
+    .coluna-esquerda,
+    .coluna-direita {
+        width: 100%;
+    }
 }
 
 
@@ -390,7 +413,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 23, 42, 0.4); /* Escurecimento suave e moderno */
+    background-color: rgba(15, 23, 42, 0.4);
+    /* Escurecimento suave e moderno */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -416,7 +440,8 @@ body {
     background: none;
     border: none;
     font-size: 28px;
-    color: #64748b; /* Cinza suave */
+    color: #64748b;
+    /* Cinza suave */
     cursor: pointer;
     line-height: 1;
 }
@@ -432,7 +457,8 @@ body {
     margin: 0 auto 16px auto;
     border-radius: 50%;
     padding: 3px;
-    background: #3182ce; /* Azul padrão da marca substituindo o gradiente */
+    background: #3182ce;
+    /* Azul padrão da marca substituindo o gradiente */
     position: relative;
 }
 
@@ -449,7 +475,8 @@ body {
     position: absolute;
     bottom: 2px;
     right: 2px;
-    background: #3182ce; /* Azul da marca */
+    background: #3182ce;
+    /* Azul da marca */
     color: white;
     width: 32px;
     height: 32px;
@@ -522,6 +549,7 @@ body {
     padding: 0 6%;
     z-index: 100;
 }
+
 /* Estilo do Logo */
 .logo {
     display: flex;
@@ -627,7 +655,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 23, 42, 0.4); /* Fundo escurecido suave */
+    background-color: rgba(15, 23, 42, 0.4);
+    /* Fundo escurecido suave */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -667,7 +696,8 @@ body {
     height: 100px;
     margin: 0 auto 16px auto;
     border-radius: 50%;
-    border: 3px solid #3182ce; /* Borda azul combinando com a marca */
+    border: 3px solid #3182ce;
+    /* Borda azul combinando com a marca */
     position: relative;
 }
 
@@ -716,7 +746,8 @@ body {
 }
 
 .box.blue-light {
-    background-color: #eff6ff; /* Tom claro de azul super harmônico */
+    background-color: #eff6ff;
+    /* Tom claro de azul super harmônico */
     border-radius: 12px;
     padding: 12px 8px;
     display: flex;
@@ -727,7 +758,8 @@ body {
 .box .num {
     font-size: 16px;
     font-weight: 700;
-    color: #1d4ed8; /* Azul escuro informativo */
+    color: #1d4ed8;
+    /* Azul escuro informativo */
     margin-bottom: 2px;
 }
 
@@ -777,8 +809,14 @@ body {
     border-radius: 10px;
 }
 
-#in-name { font-weight: 700; color: #1e293b; }
-#in-role { color: #64748b; }
+#in-name {
+    font-weight: 700;
+    color: #1e293b;
+}
+
+#in-role {
+    color: #64748b;
+}
 
 .fields {
     margin-bottom: 24px;
@@ -880,6 +918,7 @@ body {
 .hero-section {
     padding: 80px 6%;
 }
+
 .hero-content .badge {
     background-color: #dceffa;
     color: #1d4ed8;
@@ -888,6 +927,7 @@ body {
     font-size: 13px;
     font-weight: 600;
 }
+
 .hero-content h1 {
     font-size: 48px;
     color: #1e293b;

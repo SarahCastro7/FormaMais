@@ -39,8 +39,7 @@ body {
 }
 
 .testimonials-header h2 span {
-    color: #a855f7;
-    /* Roxo em destaque */
+    color: #002575;
 }
 
 .testimonials-header p {
@@ -57,8 +56,7 @@ body {
 
 /* Card Individual */
 .testimonial-card {
-    background-color: #fdf2f8;
-    /* Fundo rosa bem claro */
+    background-color: #d0e4f0;
     border-radius: 16px;
     padding: 35px;
     display: flex;
@@ -87,8 +85,7 @@ body {
 .quote-icon {
     font-size: 4rem;
     font-family: Georgia, serif;
-    color: #f472b6;
-    /* Tom rosa médio para as aspas */
+    color: #03566b;
     opacity: 0.3;
     line-height: 1;
     height: 30px;
