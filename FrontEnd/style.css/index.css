@@ -6,9 +6,9 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 200px; 
-  }
-  
+    scroll-padding-top: 200px;
+}
+
 
 body {
     margin: 0;
@@ -230,6 +230,126 @@ body {
     vertical-align: middle;
 }
 
+/* Seção de Estatísticas */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 60px 10%;
+    background-color: #fff;
+    text-align: left;
+}
+
+.stat-item h2 {
+    font-size: 2.5rem;
+    color: #1C2B3E;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    color: #64748B;
+    font-size: 1.1rem;
+}
+
+/* Seção de Benefícios */
+.benefits-section {
+    padding: 80px 10%;
+    background-color: #F8FAFC;
+    text-align: center;
+}
+
+.benefits-section h2 {
+    font-size: 2rem;
+    color: #1C2B3E;
+    margin-bottom: 10px;
+}
+
+.benefits-section h2 span {
+    color: #2181BD;
+}
+
+.benefits-section>p {
+    color: #64748B;
+    margin-bottom: 50px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.benefit-card {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.icon-box i {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+}
+
+.benefit-card:hover .icon-box {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+
+.benefit-card h3 {
+    color: #1C2B3E;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.benefit-card p {
+    color: #64748B;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.bg-orange {
+    background-color: #F59E0B;
+}
+
+.bg-blue {
+    background-color: #3B82F6;
+}
+
+.bg-purple {
+    background-color: #8B5CF6;
+}
+
+.bg-green {
+    background-color: #10B981;
+}
+
+.bg-red {
+    background-color: #EF4444;
+}
+
+.bg-indigo {
+    background-color: #6366F1;
+}
+
 /*---------------- FOOTER -----------------*/
 
 .footer {
@@ -254,12 +374,12 @@ body {
 
 .footer-brand .logo-text {
     color: #fff;
-   
+
 }
 
 .footer-desc {
     color: #94A3B8;
-    
+
     line-height: 1.6;
     font-size: 0.95rem;
     margin-bottom: 25px;
