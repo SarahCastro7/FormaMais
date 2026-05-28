@@ -7,8 +7,7 @@
 }
 
 body {
-    background-color: #f8fafc;
-    /* Um fundo levemente acinzentado para destacar os cards brancos */
+    background-color: #dceffa;
     color: #333333;
 }
 
@@ -222,7 +221,6 @@ body {
 
 .card a:hover {
     gap: 8px;
-    /* Pequeno efeito de movimento na setinha */
 }
 
 /* Cores dos links baseadas nas categorias */
@@ -282,7 +280,6 @@ body {
 
 .footer {
     background-color: #0B1320;
-    /* Tom de azul escuro da imagem */
     color: #fff;
     padding: 80px 8% 40px;
     font-family: 'Segoe UI', Tahoma, sans-serif;
@@ -303,12 +300,10 @@ body {
 
 .footer-brand .logo-text {
     color: #fff;
-    /* Texto branco no fundo escuro */
 }
 
 .footer-desc {
     color: #94A3B8;
-    /* Cinza azulado suave */
     line-height: 1.6;
     font-size: 0.95rem;
     margin-bottom: 25px;

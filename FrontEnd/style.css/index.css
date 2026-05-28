@@ -222,7 +222,7 @@ body {
 /*---------------- FOOTER -----------------*/
 
 .footer {
-    background-color: #0B1320; /* Tom de azul escuro da imagem */
+    background-color: #0B1320;
     color: #fff;
     padding: 80px 8% 40px;
     font-family: 'Segoe UI', Tahoma, sans-serif;
@@ -242,11 +242,11 @@ body {
 }
 
 .footer-brand .logo-text {
-    color: #fff; /* Texto branco no fundo escuro */
+    color: #fff;
 }
 
 .footer-desc {
-    color: #94A3B8; /* Cinza azulado suave */
+    color: #94A3B8; 
     line-height: 1.6;
     font-size: 0.95rem;
     margin-bottom: 25px;
