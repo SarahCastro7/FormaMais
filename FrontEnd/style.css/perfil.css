@@ -18,7 +18,7 @@
 
 
 body {
-    background-color: #faf8fb;
+    background-color:#dceffa;;
     color: #333333;
     display: flex;
     justify-content: center;
@@ -502,11 +502,7 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-body {
-    background-color: #dbeafe; /* Tom azul claro idêntico ao seu fundo */
-    min-height: 100vh;
-    padding-top: 80px; 
-}
+
 
 .hidden {
     display: none !important;
@@ -588,14 +584,14 @@ body {
 }
 
 .btn-cta {
-    background-color: #3182ce;
-    color: white;
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: background 0.2s;
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
 }
 
 .btn-cta:hover {
@@ -849,7 +845,6 @@ body {
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
 }
 
 .btn-main:hover {
