@@ -4,13 +4,20 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 200px; 
+  }
+  
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/*--------------- NAVBAR ------------*/
 
+
+/*--------------- NAVBAR ------------*/
 .navbar {
     display: flex;
     align-items: center;
@@ -19,9 +26,11 @@ body {
     background-color: #fff;
     border-bottom: 1px solid #f0f0f0;
     position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* Estilo do Logo */
 .logo {
     display: flex;
     align-items: center;
@@ -47,7 +56,6 @@ body {
     color: #80CBF3
 }
 
-/* Links de Navegação */
 .nav-links {
     display: flex;
     list-style: none;
@@ -211,18 +219,21 @@ body {
 }
 
 .badge i {
-  font-size: 0.9rem;
-  vertical-align: middle;
+    font-size: 0.9rem;
+    vertical-align: middle;
+    font-size: 0.9rem;
+    vertical-align: middle;
 }
 
 .badge span {
-  vertical-align: middle;
+    vertical-align: middle;
+    vertical-align: middle;
 }
 
 /*---------------- FOOTER -----------------*/
 
 .footer {
-    background-color: #0B1320; /* Tom de azul escuro da imagem */
+    background-color: #0B1320;
     color: #fff;
     padding: 80px 8% 40px;
     font-family: 'Segoe UI', Tahoma, sans-serif;
@@ -242,11 +253,13 @@ body {
 }
 
 .footer-brand .logo-text {
-    color: #fff; /* Texto branco no fundo escuro */
+    color: #fff;
+   
 }
 
 .footer-desc {
-    color: #94A3B8; /* Cinza azulado suave */
+    color: #94A3B8;
+    
     line-height: 1.6;
     font-size: 0.95rem;
     margin-bottom: 25px;
