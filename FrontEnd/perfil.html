@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forma+ Perfil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css/perfil.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-icon">F+</div>
+            <span class="logo-text">forma<span>+</span></span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="cursos.html">Cursos</a></li>
+            <li><a href="beneficios.html">Benefícios</a></li>
+            <li><a href="depoimentos.html">Depoimentos</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button class="btn-login" id="btnLogin">Entrar</button>
+            <a href="cadastro.html" class="btn-cta" id="btnCta">Começar Agora</a>
+            
+            <div class="menu-avatar hidden" id="menuAvatar">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=150&h=150&q=80" alt="Perfil" class="user-img">
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal" id="profileModal">
+        
+        <div class="card" id="viewCard">
+            <button class="btn-close" id="closeView">&times;</button>
+            
+            <div class="header">
+                <div class="avatar">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=150&h=150&q=80" alt="Foto" class="user-img">
+                </div>
+                <h2 id="txt-name">Ana Carolina Silva</h2>
+                <p class="subtitle">Desenvolvedora em Formação</p>
+            </div>
+
+            <div class="stats">
+                <div class="box purple"><span class="num">12</span><span class="label">Cursos</span></div>
+                <div class="box blue"><span class="num">240h</span><span class="label">Estudadas</span></div>
+                <div class="box pink"><span class="num">8</span><span class="label">Matches</span></div>
+            </div>
+
+            <div class="info">
+                <div class="item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span id="txt-location">São Paulo, SP</span>
+                </div>
+                <div class="item">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span id="txt-email">ana.silva@email.com</span>
+                </div>
+            </div>
+
+            <div class="skills">
+                <h3>Habilidades</h3>
+                <div class="tags">
+                    <span class="tag">React</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Design</span>
+                    <span class="tag">Inglês</span>
+                </div>
+            </div>
+
+            <button class="btn-main" id="goEdit">Editar Perfil</button>
+        </div>
+
+        <div class="card hidden" id="editCard">
+            <button class="btn-close" id="closeEdit">&times;</button>
+            
+            <form id="editForm" onsubmit="event.preventDefault();">
+                <div class="header">
+                    <div class="avatar is-editing">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=150&h=150&q=80" alt="Foto" class="user-img">
+                        <label class="cam-icon" for="fileInput">
+                            <i class="fa-solid fa-camera"></i>
+                        </label>
+                        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    </div>
+                    
+                    <div class="input-box">
+                        <input type="text" id="in-name" value="Ana Carolina Silva" required>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" id="in-role" value="Desenvolvedora em Formação">
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <div class="box purple"><span class="num">12</span><span class="label">Cursos</span></div>
+                    <div class="box blue"><span class="num">240h</span><span class="label">Estudadas</span></div>
+                    <div class="box pink"><span class="num">8</span><span class="label">Matches</span></div>
+                </div>
+
+                <div class="fields">
+                    <div class="input-inline">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <input type="text" id="in-location" value="São Paulo, SP">
+                    </div>
+                    
+                    <div class="input-inline">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" id="in-email" value="ana.silva@email.com" required>
+                    </div>
+
+                    <div class="input-inline">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="in-pass" placeholder="Nova Senha">
+                    </div>
+                </div>
+
+                <div class="skills">
+                    <h3>Habilidades</h3>
+                    <div class="tags">
+                        <span class="tag">React</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Design</span>
+                        <span class="tag">Inglês</span>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="button" class="btn-sub" id="cancelBtn">Cancelar</button>
+                    <button type="submit" class="btn-main" id="saveBtn">
+                        <i class="fa-solid fa-check"></i> Salvar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <section class="secao-match">
+        <div class="cabecalho">
+            <span class="tag-topo"><i class="fa-solid fa-bolt"></i> Nosso Diferencial Exclusivo</span>
+            <h1>Career Match - Seu Match Profissional</h1>
+            <p class="descricao">
+                Sistema inteligente que conecta você com empresas enquanto estuda. À medida que completa cursos, recebe matches com vagas compatíveis com suas habilidades!
+            </p>
+        </div>
+
+        <div class="conteudo">
+            <div class="coluna-esquerda">
+                
+                <div class="item-beneficio" id="beneficio-match">
+                    <div class="icone-box rosa"><i class="fa-regular fa-heart"></i></div>
+                    <div class="texto-beneficio">
+                        <h3>Match Inteligente</h3>
+                        <p>Algoritmo analisa suas habilidades e conecta você com vagas perfeitas para seu perfil</p>
+                    </div>
+                </div>
+
+                <div class="item-beneficio" id="beneficio-evolucao">
+                    <div class="icone-box azul"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <div class="texto-beneficio">
+                        <h3>Evolução em Tempo Real</h3>
+                        <p>Cada curso concluído aumenta seu match com novas oportunidades</p>
+                    </div>
+                </div>
+
+                <div class="item-beneficio" id="beneficio-conexao">
+                    <div class="icone-box laranja"><i class="fa-solid fa-building"></i></div>
+                    <div class="texto-beneficio">
+                        <h3>Conexão Direta</h3>
+                        <p>Candidatura simplificada - um clique para se conectar com empresas</p>
+                    </div>
+                </div>
+
+                <div class="card-recentes">
+                    <div class="topo-recentes">
+                        <div class="icone-raio"><i class="fa-solid fa-bolt"></i></div>
+                        <div>
+                            <h4>Matches Recentes</h4>
+                            <span id="texto-empresas">7 empresas interessadas</span>
+                        </div>
+                    </div>
+                    <div class="logos-recentes" id="container-logos">
+                        <span class="mini-logo">📈</span>
+                        <span class="mini-logo">🚀</span>
+                        <span class="mini-logo">🏢</span>
+                        <span class="mini-logo">🍇</span>
+                        <span class="mini-logo">🛍️</span>
+                        <span class="contador-mais">+12</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="coluna-direita">
+                <div class="card-vaga" id="cardVaga">
+                    <span class="tag-match">92% Match</span>
+                    
+                    <div class="empresa-logo" id="logoPrincipal" style="background-color: #ff5722;">
+                        <i class="fa-solid fa-border-all"></i>
+                    </div>
+
+                    <h2 class="titulo-vaga">Analista de Marketing Digital</h2>
+                    <span class="nome-empresa"><i class="fa-solid fa-building-columns"></i> Marketing Pro</span>
+
+                    <div class="detalhes-vaga">
+                        <p><i class="fa-solid fa-location-dot"></i> Remoto</p>
+                        <p class="salario"><i class="fa-solid fa-dollar-sign"></i> R$ 3.000 - R$ 4.500</p>
+                    </div>
+
+                    <div class="skills-section">
+                        <span class="label-skills">Skills necessárias:</span>
+                        <div class="lista-skills">
+                            <span class="tag-skill">SEO</span>
+                            <span class="tag-skill">Google Ads</span>
+                            <span class="tag-skill">Redes Sociais</span>
+                        </div>
+                    </div>
+
+                    <div class="acoes-vaga">
+                        <button class="btn-recusar" id="btnPassar"><i class="fa-solid fa-xmark"></i> Passar</button>
+                        <button class="btn-aceitar" id="btnInteressado"><i class="fa-regular fa-heart"></i> Interessado</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="forma.js/perfil.js"></script>
+</body>
+</html>
