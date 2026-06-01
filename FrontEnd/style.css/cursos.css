@@ -5,7 +5,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
+.info-cursos {
     background-color: #ffffff;
     color: #333333;
     padding: 60px 20px;
@@ -183,18 +183,14 @@ body {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* fundo escuro */
+
 .modal {
     display: none;
 
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
 
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.45);
 
     justify-content: center;
     align-items: center;
@@ -202,27 +198,478 @@ body {
     z-index: 999;
 }
 
-/* caixa do modal */
-.modal-conteudo {
-    background: white;
+.modal-content {
+    background: #fff;
 
     width: 90%;
-    max-width: 500px;
+    max-width: 860px;
 
-    padding: 25px;
+    max-height: 85vh;
 
-    border-radius: 12px;
+    overflow-y: auto;
+
+    border-radius: 14px;
+
+    padding: 22px;
 
     position: relative;
 }
 
-/* botão X */
+/* botão fechar */
 .fechar {
     position: absolute;
-    top: 10px;
-    right: 15px;
 
-    font-size: 28px;
+    top: 16px;
+    right: 20px;
+
+    border: none;
+    background: none;
+
+    font-size: 24px;
+
     cursor: pointer;
 }
 
+/* topo */
+.modal-header {
+    margin-bottom: 22px;
+}
+
+.modal-header h2 {
+    margin: 0;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    color: #222;
+}
+
+.modal-header p {
+    margin-top: 6px;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+/* grid */
+.cursos-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+/* card */
+.curso-card {
+    background: #fff;
+
+    border: 1px solid #ececec;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+/* imagem */
+.curso-img {
+    width: 100%;
+    height: 130px;
+
+    object-fit: cover;
+}
+
+/* conteúdo */
+.curso-body {
+    padding: 14px;
+}
+
+/* badge */
+.nivel {
+    display: inline-block;
+
+    background: #f3e8ff;
+
+    color: #7c3aed;
+
+    font-size: 12px;
+
+    padding: 4px 10px;
+
+    border-radius: 20px;
+
+    margin-bottom: 10px;
+}
+
+.curso-body h3 {
+    margin: 0;
+
+    font-size: 17px;
+
+    color: #111;
+}
+
+.curso-body p {
+    margin-top: 8px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    color: #666;
+}
+
+.curso-info {
+    display: flex;
+
+    gap: 14px;
+
+    margin-top: 12px;
+
+    font-size: 13px;
+
+    color: #666;
+}
+
+/* celular */
+@media (max-width: 768px) {
+
+    .cursos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+
+    .modal-header h2 {
+        font-size: 24px;
+    }
+}
+
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1C2B3E
+}
+
+.logo-text span {
+    color: #80CBF3
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #1C2B3E
+}
+
+/* Ações e Botão */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+
+.btn-login {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.btn-cta {
+    text-decoration: none;
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
+}
+
+.btn-cta:hover {
+    opacity: 0.9;
+}
+
+
+.footer {
+    background-color: #0B1320;
+    color: #fff;
+    padding: 80px 8% 40px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo do Logo no Footer */
+.footer-brand .logo {
+    margin-bottom: 20px;
+}
+
+.footer-brand .logo-text {
+    color: #fff;
+
+}
+
+.footer-desc {
+    color: #94A3B8;
+
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    max-width: 300px;
+}
+
+/* Redes Sociais */
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #1E293B;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+
+.social-links a:hover {
+    background: linear-gradient(90deg, #2181BD, #6DADD8);
+    transform: translateY(-3px);
+}
+
+/* Colunas de Links */
+.footer-links h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #94A3B8;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #80CBF3;
+    padding-left: 5px;
+}
+
+/* Parte de baixo */
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #1E293B;
+    text-align: center;
+    color: #64748B;
+    font-size: 0.85rem;
+}
+
+.detalhes-content {
+    background: #fff;
+
+    width: 90%;
+    max-width: 760px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    border-radius: 14px;
+
+    position: relative;
+}
+
+/* banner */
+.detalhes-banner {
+    position: relative;
+}
+
+.banner-img {
+    width: 100%;
+    height: 210px;
+
+    object-fit: cover;
+}
+
+.banner-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(132, 0, 255, .25),
+            rgba(255, 0, 150, .45)
+        );
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.tag {
+    display: inline-block;
+
+    background: #fff;
+
+    color: #7c3aed;
+
+    font-size: 12px;
+
+    padding: 4px 10px;
+
+    border-radius: 20px;
+
+    width: fit-content;
+}
+
+.banner-overlay h2 {
+    color: white;
+
+    margin-top: 10px;
+}
+
+/* info */
+.curso-meta {
+    display: flex;
+    gap: 18px;
+
+    padding: 20px;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #eee;
+}
+
+/* seções */
+.secao {
+    padding: 20px;
+}
+
+.secao h3 {
+    margin-bottom: 12px;
+}
+
+/* módulos */
+.modulo {
+    border: 1px solid #eee;
+
+    border-radius: 10px;
+
+    padding: 14px;
+
+    margin-bottom: 12px;
+}
+
+/* ações */
+.acoes {
+    display: flex;
+    gap: 12px;
+
+    padding: 20px;
+}
+
+.btn-lista {
+    flex: 1;
+
+    border: 1px solid #ddd;
+
+    background: white;
+
+    border-radius: 10px;
+
+    padding: 12px;
+}
+
+.btn-comecar {
+    flex: 1;
+
+    border: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8b5cf6,
+            #ec4899
+        );
+
+    color: white;
+
+    border-radius: 10px;
+
+    padding: 12px;
+}
