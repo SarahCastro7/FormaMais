@@ -14,7 +14,6 @@ body {
     padding: 15px;
 }
 
-/* Container do Card/Modal */
 .modal-container {
     background-color: #ffffff;
     width: 100%;
@@ -32,13 +31,15 @@ body {
     right: 20px;
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 30px;
     color: #333;
     cursor: pointer;
     z-index: 10;
+    text-decoration: none;
+    line-height: 1;
+
 }
 
-/* Logo e Cabeçalho */
 .modal-header {
     text-align: center;
     margin-bottom: 25px;
@@ -74,6 +75,7 @@ body {
     flex-direction: column;
     gap: 16px;
 }
+
 .form-grid {
     display: grid;
     grid-template-columns: 1fr;
