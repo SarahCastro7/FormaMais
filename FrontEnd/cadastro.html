@@ -12,9 +12,7 @@
 <body>
 
     <div class="modal-container">
-        <a class="close-btn" href="index.html" style="text-decoration:none; color:inherit; display:inline-block;"
-            aria-label="Fechar">&times;</a>
-
+        <a class="close-btn" href="index.html" aria-label="Fechar">&times;</a>
 
         <div class="modal-header">
             <div class="logo">F+</div>
@@ -22,62 +20,65 @@
             <p>Comece sua jornada profissional hoje</p>
         </div>
 
-        <form class="signup-form">
-            <div class="input-group">
-                <label for="name">Nome completo</label>
-                <div class="input-wrapper">
-                    <i class="fa-regular fa-user input-icon"></i>
-                    <input type="text" id="name" placeholder="Seu nome" required>
+        <form class="signup-form" action="perfil.html" method="POST">
+
+            <div class="form-grid">
+                <div class="input-group">
+                    <label for="name">Nome completo</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-user input-icon"></i>
+                        <input type="text" id="name" name="nome" placeholder="Seu nome" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-envelope input-icon"></i>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">Telefone</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-phone input-icon"></i>
+                        <input type="tel" id="phone" name="telefone" placeholder="(00) 00000-0000">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-lock input-icon"></i>
+                        <input type="password" id="password" name="senha" placeholder="••••••••" required>
+                        <i class="fa-regular fa-eye password-toggle"></i>
+                    </div>
+                </div>
+
+                <div class="input-group full-width-tablet">
+                    <label for="confirm-password">Confirmar senha</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-shield-halved input-icon"></i>
+                        <input type="password" id="confirm-password" placeholder="••••••••" required>
+                    </div>
                 </div>
             </div>
 
-            <div class="input-group">
-                <label for="email">Email</label>
-                <div class="input-wrapper">
-                    <i class="fa-regular fa-envelope input-icon"></i>
-                    <input type="email" id="email" placeholder="seu@email.com" required>
+            <div class="checkbox-container">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">Eu aceito os <a href="#">termos de uso</a> e a <a href="#">política de
+                            privacidade</a></label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="newsletter">
+                    <label for="newsletter">Quero receber novidades e ofertas por email</label>
                 </div>
             </div>
 
-            <div class="input-group">
-                <label for="phone">Telefone</label>
-                <div class="input-wrapper">
-                    <i class="fa-solid fa-phone input-icon"></i>
-                    <input type="tel" id="phone" placeholder="(00) 00000-0000">
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label for="password">Senha</label>
-                <div class="input-wrapper">
-                    <i class="fa-solid fa-lock input-icon"></i>
-                    <input type="password" id="password" placeholder="••••••••" required>
-                    <i class="fa-regular fa-eye password-toggle"></i>
-                </div>
-            </div>
-
-            <div class="input-group">
-                <label for="confirm-password">Confirmar senha</label>
-                <div class="input-wrapper">
-                    <i class="fa-solid fa-shield-halved input-icon"></i>
-                    <input type="password" id="confirm-password" placeholder="••••••••" required>
-                </div>
-            </div>
-
-            <div class="checkbox-group">
-                <input type="checkbox" id="terms" required>
-                <label for="terms">Eu aceito os <a href="#">termos de uso</a> e a <a href="#">política de
-                        privacidade</a></label>
-            </div>
-
-            <div class="checkbox-group">
-                <input type="checkbox" id="newsletter">
-                <label for="newsletter">Quero receber novidades e ofertas por email</label>
-            </div>
-
-            <a href="perfil.html" style="text-decoration: none; display: block; width: 100%;">
-                <button type="button" class="submit-btn">Criar Conta Gratuitamente</button>
-            </a>
+            <button type="submit" class="submit-btn">Criar Conta Gratuitamente</button>
         </form>
 
         <div class="modal-footer">

@@ -1,4 +1,3 @@
-/* Configurações Globais e Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,24 +6,24 @@
 }
 
 body {
-    /* Voltando para o azul do cadastro */
     background: linear-gradient(90deg, #44a0da 0%, #b4e1ff 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    padding: 15px;
 }
 
 .card {
     background-color: #ffffff;
     width: 100%;
-    max-width: 480px;
+    max-width: 440px;
     border-radius: 24px;
-    padding: 40px;
+    padding: 30px 20px;
     position: relative;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     text-align: center;
+    transition: max-width 0.3s ease, padding 0.3s ease;
 }
 
 .fechar {
@@ -33,9 +32,12 @@ body {
     right: 25px;
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 30px;
     color: #333;
     cursor: pointer;
+    z-index: 10;
+    text-decoration: none;
+    line-height: 1;
 }
 
 .topo {
@@ -44,7 +46,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Logo com o degradê azul da marca */
 .logo {
     background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
     color: white;
@@ -68,12 +69,12 @@ h2 {
 .subtitulo {
     color: #777777;
     font-size: 14px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .campo {
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .campo label {
@@ -88,6 +89,7 @@ h2 {
     position: relative;
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .icone {
@@ -105,9 +107,9 @@ h2 {
     font-size: 15px;
     outline: none;
     transition: 0.2s;
+    color: #333;
 }
 
-/* Foco azul */
 .input-box input:focus {
     border-color: #2181BD;
     background-color: #fff;
@@ -124,7 +126,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 25px;
 }
 
@@ -132,22 +134,27 @@ h2 {
     color: #333;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     cursor: pointer;
 }
 
 .lembrar input {
     accent-color: #2181BD;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
 }
 
-/* Link esqueci a senha em azul */
 .esqueci {
     color: #2181BD;
     text-decoration: none;
     font-weight: 600;
 }
 
-/* Botão Entrar com degradê azul */
+.esqueci:hover {
+    text-decoration: underline;
+}
+
 .btn-entrar {
     width: 100%;
     padding: 14px;
@@ -158,35 +165,16 @@ h2 {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s, transform 0.2s;
 }
 
 .btn-entrar:hover {
-    opacity: 0.9;
-}
-
-.cadastro {
-    margin-top: 25px;
-    font-size: 14px;
-    color: #64748b;
-    text-align: center;
-}
-
-.cadastro a {
-    color: #2181BD;
-    text-decoration: none;
-    font-weight: 700;
-    transition: 0.3s;
-}
-
-.cadastro a:hover {
-    /* Efeito de destaque ao passar o mouse */
-    color: #6DADD8;
-    text-decoration: underline;
+    opacity: 0.95;
+    transform: translateY(-1px);
 }
 
 .linha {
-    margin: 25px 0;
+    margin: 22px 0;
     position: relative;
 }
 
@@ -204,7 +192,7 @@ h2 {
 .linha span {
     position: relative;
     background-color: #ffffff;
-    padding: 0 15px;
+    padding: 0 12px;
     color: #94a3b8;
     font-size: 13px;
     z-index: 2;
@@ -212,8 +200,9 @@ h2 {
 
 .redes {
     display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 25px;
 }
 
 .btn-rede {
@@ -221,13 +210,12 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    /* Espaço entre a imagem e o texto */
+    gap: 8px;
     padding: 12px;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
     background-color: #ffffff;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     color: #333;
     cursor: pointer;
@@ -235,12 +223,59 @@ h2 {
 }
 
 .btn-rede img {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     object-fit: contain;
 }
 
 .btn-rede:hover {
     background-color: #f8fafc;
     border-color: #cbd5e1;
+}
+
+.cadastro {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #64748b;
+}
+
+.cadastro a {
+    color: #2181BD;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.cadastro a:hover {
+    color: #6DADD8;
+    text-decoration: underline;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 360px) {
+    .opcoes {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .redes {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 500px) {
+    .card {
+        max-width: 480px;
+        padding: 40px;
+    }
+
+    .subtitulo {
+        margin-bottom: 30px;
+    }
+
+    .opcoes {
+        font-size: 14px;
+    }
 }

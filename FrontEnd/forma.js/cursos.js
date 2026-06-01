@@ -53,13 +53,63 @@ function mostrarCursos(categoria) {
 
     filtrados.forEach(curso => {
 
-        const item =
-            document.createElement("li");
+        const card =
+            document.createElement("div");
 
-        item.textContent =
-            curso.nome_curso;
+        card.classList.add("curso-card");
 
-        lista.appendChild(item);
+        card.innerHTML = `
+    <img
+        src="img/design.jpg"
+        class="curso-img">
+
+    <div class="curso-body">
+
+        <span class="nivel">
+            ${curso.nivel || "Iniciante"}
+        </span>
+
+        <h3>
+            ${curso.nome_curso}
+        </h3>
+
+        <p>
+            ${curso.descricao || ""}
+        </p>
+
+        <div class="curso-info">
+
+            <span>⭐ 4.8</span>
+
+            <span>
+                ⏱ ${curso.carga_horaria || "20h"}
+            </span>
+
+        </div>
+
+    </div>
+`;
+
+       card.onclick = function () {
+
+    document
+        .getElementById("tituloCurso")
+        .textContent =
+        curso.nome_curso;
+
+    document
+        .getElementById("descricaoCurso")
+        .textContent =
+        curso.descricao || "";
+
+    abrirModal(
+        "modalDetalhes",
+        "",
+        event
+    );
+};
+
+lista.appendChild(card);
 
     });
 }

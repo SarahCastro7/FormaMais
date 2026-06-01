@@ -12,7 +12,7 @@
 <body>
 
     <div class="card">
-        <a href="index.html" class="fechar" style="text-decoration:none; color:inherit; display:inline-block;" aria-label="Fechar">×</a>
+        <a href="index.html" class="fechar" aria-label="Fechar">×</a>
 
         <div class="topo">
             <div class="logo">F+</div>
@@ -21,12 +21,12 @@
         <h2>Bem-vindo de volta!</h2>
         <p class="subtitulo">Entre para continuar sua jornada</p>
 
-        <form id="loginForm">
+        <form id="loginForm" action="/api/login" method="POST">
             <div class="campo">
                 <label for="email">Email</label>
                 <div class="input-box">
                     <i class="fa-regular fa-envelope icone"></i>
-                    <input type="email" id="email" placeholder="seu@email.com" required>
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
                 </div>
             </div>
 
@@ -34,14 +34,14 @@
                 <label for="password">Senha</label>
                 <div class="input-box">
                     <i class="fa-solid fa-lock icone"></i>
-                    <input type="password" id="password" placeholder="********" required>
+                    <input type="password" id="password" name="senha" placeholder="********" required>
                     <i class="fa-regular fa-eye ver-senha" id="togglePassword"></i>
                 </div>
             </div>
 
             <div class="opcoes">
                 <label class="lembrar">
-                    <input type="checkbox"> Lembrar-me
+                    <input type="checkbox" name="lembrar"> Lembrar-me
                 </label>
                 <a href="#" class="esqueci">Esqueci a senha</a>
             </div>

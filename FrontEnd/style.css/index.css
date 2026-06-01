@@ -6,16 +6,15 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 200px;
+    scroll-padding-top: 70px;
 }
-
 
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    /* Evita barras de rolagem horizontais fantasmas */
 }
-
-
 
 /*--------------- NAVBAR ------------*/
 .navbar {
@@ -25,7 +24,6 @@ body {
     padding: 15px 5%;
     background-color: #fff;
     border-bottom: 1px solid #f0f0f0;
-    position: relative;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -49,11 +47,11 @@ body {
 .logo-text {
     font-size: 1.4rem;
     font-weight: 800;
-    color: #1C2B3E
+    color: #1C2B3E;
 }
 
 .logo-text span {
-    color: #80CBF3
+    color: #80CBF3;
 }
 
 .nav-links {
@@ -73,10 +71,9 @@ body {
 }
 
 .nav-links a:hover {
-    color: #1C2B3E
+    color: #1C2B3E;
 }
 
-/* Ações e Botão */
 .nav-actions {
     display: flex;
     align-items: center;
@@ -105,11 +102,20 @@ body {
     opacity: 0.9;
 }
 
-/* ------------ INICIO ------------------*/
+/* Botão invisível no desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #1C2B3E;
+    cursor: pointer;
+}
 
+/* ------------ INICIO (HERO) ------------------*/
 .hero {
     background: #dceffa;
-    padding: 80px 8%;
+    padding: 60px 5%;
     min-height: 85vh;
     display: flex;
     align-items: center;
@@ -121,6 +127,7 @@ body {
     gap: 50px;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .hero-content {
@@ -143,15 +150,18 @@ body {
     font-size: 3.5rem;
     line-height: 1.1;
     margin-bottom: 20px;
-    color: var(--dark-blue);
+    color: #1C2B3E;
 }
 
-.hero-content h1 span {
-    color: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+.gradient-text {
+    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 .hero-content p {
-    color: var(--text-gray);
+    color: #64748B;
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 35px;
@@ -162,6 +172,7 @@ body {
     display: flex;
     gap: 15px;
     margin-bottom: 50px;
+    flex-wrap: wrap;
 }
 
 .btn-primary {
@@ -200,6 +211,7 @@ body {
 .stat-item p {
     font-size: 0.85rem;
     margin: 0;
+    color: #64748B;
 }
 
 .hero-image {
@@ -216,43 +228,12 @@ body {
 .img-wrapper img {
     width: 100%;
     display: block;
-}
-
-.badge i {
-    font-size: 0.9rem;
-    vertical-align: middle;
-    font-size: 0.9rem;
-    vertical-align: middle;
-}
-
-.badge span {
-    vertical-align: middle;
-    vertical-align: middle;
-}
-
-/* Seção de Estatísticas */
-.stats-container {
-    display: flex;
-    justify-content: space-around;
-    padding: 60px 10%;
-    background-color: #fff;
-    text-align: left;
-}
-
-.stat-item h2 {
-    font-size: 2.5rem;
-    color: #1C2B3E;
-    margin-bottom: 5px;
-}
-
-.stat-item p {
-    color: #64748B;
-    font-size: 1.1rem;
+    object-fit: cover;
 }
 
 /* Seção de Benefícios */
 .benefits-section {
-    padding: 80px 10%;
+    padding: 80px 5%;
     background-color: #F8FAFC;
     text-align: center;
 }
@@ -313,7 +294,6 @@ body {
     filter: brightness(1.1);
 }
 
-
 .benefit-card h3 {
     color: #1C2B3E;
     margin-bottom: 15px;
@@ -326,37 +306,11 @@ body {
     line-height: 1.6;
 }
 
-.bg-orange {
-    background-color: #F59E0B;
-}
-
-.bg-blue {
-    background-color: #3B82F6;
-}
-
-.bg-purple {
-    background-color: #8B5CF6;
-}
-
-.bg-green {
-    background-color: #10B981;
-}
-
-.bg-red {
-    background-color: #EF4444;
-}
-
-.bg-indigo {
-    background-color: #6366F1;
-}
-
 /*---------------- FOOTER -----------------*/
-
 .footer {
     background-color: #0B1320;
     color: #fff;
-    padding: 80px 8% 40px;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    padding: 60px 5% 30px;
 }
 
 .footer-container {
@@ -367,26 +321,22 @@ body {
     margin: 0 auto;
 }
 
-/* Estilo do Logo no Footer */
 .footer-brand .logo {
     margin-bottom: 20px;
 }
 
 .footer-brand .logo-text {
     color: #fff;
-
 }
 
 .footer-desc {
     color: #94A3B8;
-
     line-height: 1.6;
     font-size: 0.95rem;
     margin-bottom: 25px;
     max-width: 300px;
 }
 
-/* Redes Sociais */
 .social-links {
     display: flex;
     gap: 12px;
@@ -411,7 +361,6 @@ body {
     transform: translateY(-3px);
 }
 
-/* Colunas de Links */
 .footer-links h4 {
     font-size: 1.1rem;
     font-weight: 700;
@@ -438,12 +387,135 @@ body {
     padding-left: 5px;
 }
 
-/* Parte de baixo */
 .footer-bottom {
-    margin-top: 60px;
+    margin-top: 50px;
     padding-top: 30px;
     border-top: 1px solid #1E293B;
     text-align: center;
     color: #64748B;
     font-size: 0.85rem;
+}
+
+/* RESPONSIVIDADE*/
+
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content p {
+        margin: 0 auto 30px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .hero-image {
+        width: 100%;
+        max-width: 500px;
+
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links,
+    .nav-actions {
+        display: none;
+    }
+    .navbar.nav-active {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navbar.nav-active .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 15px;
+        padding: 10px 0;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .navbar.nav-active .nav-actions {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .navbar.nav-active .btn-cta {
+        width: 100%;
+    }
+
+    .hero {
+        padding: 40px 4%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-card {
+        padding: 25px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-brand .logo {
+        justify-content: center;
+    }
+
+    .footer-desc {
+        margin: 0 auto 20px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
 }
