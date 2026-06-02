@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS public.tab_usuarios
 );
 
 
-//--- tabela de cadastro
+-- - tabela de cadastro
 -- id - PK
 -- email 
 -- senha
