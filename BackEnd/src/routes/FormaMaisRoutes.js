@@ -9,7 +9,7 @@ FormaMaisRoute.get('/', async (req, res) => {
         const formas = await formaService.getAll();
         res.json(formas);
     } catch (error) {
-        console.error('Erro ao listar formas:', error);
+        console.error('Erro ao listar usuario:', error);
         res.status(500).json({ message: error.message });
     }
 });
@@ -34,7 +34,7 @@ FormaMaisRoute.post('/', async (req, res) => {
         const forma = await formaService.create(req.body);
         res.status(201).json(forma);
     } catch (error) {
-        console.error('Erro ao criar forma:', error);
+        console.error('Erro ao criar usuario:', error);
         res.status(500).json({ message: error.message });
     }
 });
@@ -48,7 +48,7 @@ FormaMaisRoute.put('/:id', async (req, res) => {
 
         res.json(forma);
     } catch (error) {
-        console.error('Erro ao atualizar forma:', error);
+        console.error('Erro ao atualizar usuarios:', error);
         res.status(500).json({ message: error.message });
     }
 });
@@ -62,7 +62,7 @@ FormaMaisRoute.patch('/:id', async (req, res) => {
 
         res.json(forma);
     } catch (error) {
-        console.error('Erro ao atualizar parcialmente a forma:', error);
+        console.error('Erro ao atualizar parcialmente o usuario:', error);
         res.status(500).json({ message: error.message });
     }
 });
@@ -76,7 +76,7 @@ FormaMaisRoute.delete('/:id', async (req, res) => {
 
         res.json(forma);
     } catch (error) {
-        console.error('Erro ao excluir forma:', error);
+        console.error('Erro ao excluir usuario:', error);
         res.status(500).json({ message: error.message });
     }
 });

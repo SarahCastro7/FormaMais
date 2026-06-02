@@ -1,16 +1,18 @@
 import { pool } from '../config/db.js';
 import 'dotenv/config';
 
+const TABLE = 'tab_usuario';
+
 class FormaMaisService {
 
     async getAll() {
         try {
             const result = await pool.query(
-                'SELECT * FROM public.tab_usuario ORDER BY id_usuario'
+                `SELECT * FROM ${TABLE} ORDER BY id_usuario`
             );
             return result.rows;
         } catch (error) {
-            console.error('Erro ao listar forma_mais:', error);
+            console.error('Erro ao listar usuários:', error);
             throw new Error(error.message);
         }
     }
@@ -18,74 +20,80 @@ class FormaMaisService {
     async getById(id) {
         try {
             const result = await pool.query(
-                'SELECT * FROM tab_usuario WHERE id_usuario = $1', // ✅ corrigido
+                `SELECT * FROM ${TABLE} WHERE id_usuario = $1`,
                 [id]
             );
             return result.rows[0];
         } catch (error) {
-            console.error('Erro ao buscar forma_mais por id:', error);
+            console.error('Erro ao buscar usuário por id:', error);
             throw new Error(error.message);
         }
     }
 
     async create(data) {
         try {
-            const { nome } = data;
+            const { nome_usuario, email_usuario, senha_usuario, telefone_usuario } = data;
             const result = await pool.query(
-                'INSERT INTO tab_usuario (nome) VALUES ($1) RETURNING *', // ✅ corrigido
-                [nome]
+                `INSERT INTO ${TABLE} (nome_usuario, email_usuario, senha_usuario, telefone_usuario) 
+                 VALUES ($1, $2, $3, $4) RETURNING *`,
+                [nome_usuario, email_usuario, senha_usuario, telefone_usuario]
             );
             return result.rows[0];
         } catch (error) {
-            console.error('Erro ao criar forma_mais:', error);
+            console.error('Erro ao criar usuário:', error);
             throw new Error(error.message);
         }
     }
 
     async update(id, data) {
         try {
-            const { nome } = data;
+            const { nome_usuario, email_usuario, senha_usuario, telefone_usuario } = data;
             const result = await pool.query(
-                'UPDATE tab_usuario SET nome = $1 WHERE id = $2 RETURNING *', // ✅ corrigido
-                [nome, id]
+                `UPDATE ${TABLE} SET nome_usuario = $1, email_usuario = $2, 
+                 senha_usuario = $3, telefone_usuario = $4 
+                 WHERE id_usuario = $5 RETURNING *`,
+                [nome_usuario, email_usuario, senha_usuario, telefone_usuario, id]
             );
             return result.rows[0];
         } catch (error) {
-            console.error('Erro ao atualizar forma_mais:', error);
+            console.error('Erro ao atualizar usuário:', error);
             throw new Error(error.message);
         }
     }
 
-    async patch(tab_usuario, data) {
+    async patch(id, data) {
         try {
-            const atual = await this.getBytab_usuario(tab_usuario);
+            const atual = await this.getById(id);
 
-            if (!atual) {
-                throw new Error('Registro não encontrado');
-            }
+            if (!atual) throw new Error('Usuário não encontrado');
 
-            const nome = data.nome ?? atual.nome;
+            const nome_usuario = data.nome_usuario ?? atual.nome_usuario;
+            const email_usuario = data.email_usuario ?? atual.email_usuario;
+            const senha_usuario = data.senha_usuario ?? atual.senha_usuario;
+            const telefone_usuario = data.telefone_usuario ?? atual.telefone_usuario;
 
             const result = await pool.query(
-                'UPDATE tab_usuario SET nome = $1 WHERE id_usuario = $2 RETURNING *', // ✅ corrig_usuarioo
-                [nome, id_usuario]
+                `UPDATE ${TABLE} SET nome_usuario = $1, email_usuario = $2, 
+                 senha_usuario = $3, telefone_usuario = $4 
+                 WHERE id_usuario = $5 RETURNING *`,
+                [nome_usuario, email_usuario, senha_usuario, telefone_usuario, id]
             );
             return result.rows[0];
         } catch (error) {
-            console.error('Erro ao atualizar parcialmente forma_mais:', error);
+            console.error('Erro ao atualizar parcialmente usuário:', error);
             throw new Error(error.message);
         }
     }
 
-    async delete(id_usuario) {
+    async delete(id) {
         try {
             const result = await pool.query(
-                'DELETE FROM tab_usuario WHERE id = $1 RETURNING *', // ✅ corrigido
+                `DELETE FROM ${TABLE} WHERE id_usuario = $1 RETURNING *`,
                 [id]
             );
             return result.rows[0];
         } catch (error) {
-            console.error('Erro ao excluir forma_mais:', error);
+            console.error('Erro ao excluir usuário:', error);
             throw new Error(error.message);
         }
     }
