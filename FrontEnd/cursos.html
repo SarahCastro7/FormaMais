@@ -8,117 +8,10 @@
     <link rel="stylesheet" href="style.css/cursos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <style>
-        /* --- ESTILOS DO PERFIL LOGADO NA NAVBAR --- */
-        .user-profile-nav {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .nav-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #2181BD;
-        }
-
-        .btn-logout {
-            text-decoration: none;
-            color: #ef4444;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.3s, transform 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .btn-logout:hover {
-            color: #dc2626;
-            transform: translateX(2px);
-        }
-
-        /* --- CORREÇÃO COMPLETA PARA RESPONSIVIDADE (MOBILE) --- */
-        @media (max-width: 768px) {
-
-            /* Força a Navbar a manter o fundo branco e não vazar nada */
-            .navbar {
-                background-color: #ffffff !important;
-                position: relative;
-                z-index: 99999 !important;
-            }
-
-            /* Garante que os links e as ações fiquem com fundo totalmente opaco quando abertos */
-            .nav-links,
-            .nav-actions {
-                background-color: #ffffff !important;
-                display: none;
-                /* Escondidos por padrão no mobile */
-                flex-direction: column !important;
-                width: 100% !important;
-                position: absolute !important;
-                left: 0 !important;
-                box-shadow: none !important;
-                z-index: 99998 !important;
-            }
-
-            /* Posições para empilhar corretamente abaixo da navbar */
-            .nav-links {
-                top: 70px !important;
-                /* Ajuste dependendo da altura da sua navbar */
-                padding: 20px 0 10px 0 !important;
-            }
-
-            .nav-actions {
-                top: 250px !important;
-                /* Senta logo abaixo da lista de links */
-                padding: 10px 0 20px 0 !important;
-                border-bottom: 2px solid #f0f0f0;
-            }
-
-            /* Exibe os elementos juntos quando o menu estiver ativo */
-            .navbar.nav-active .nav-links,
-            .navbar.nav-active .nav-actions {
-                display: flex !important;
-            }
-
-            /* Força a foto e o botão Sair a ficarem um abaixo do outro perfeitamente centralizados */
-            .user-profile-nav {
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: center !important;
-                align-items: center !important;
-                gap: 12px !important;
-                padding: 10px 0 !important;
-                width: 100% !important;
-            }
-
-            .nav-avatar {
-                width: 60px !important;
-                height: 60px !important;
-            }
-
-            .btn-logout {
-                font-size: 1.05rem !important;
-                justify-content: center !important;
-                width: auto !important;
-            }
-
-            /* Estilos extras para botões de Entrar/Começar no Mobile caso deslogado */
-            .nav-actions .btn-login,
-            .nav-actions .btn-cta {
-                display: block !important;
-                width: 80% !important;
-                margin: 8px auto !important;
-                text-align: center !important;
-            }
-        }
-    </style>
 </head>
 
 <body>
+
 
     <nav class="navbar">
         <div class="logo">
@@ -127,10 +20,6 @@
                 style="text-decoration: none; color: inherit;">forma<span>+</span></a>
         </div>
 
-        <button class="menu-toggle" aria-label="Abrir menu" id="mobile-menu-btn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-
         <ul class="nav-links">
             <li><a href="cursos.html">Cursos</a></li>
             <li><a href="beneficios.html">Benefícios</a></li>
@@ -138,7 +27,9 @@
             <li><a href="sobre.html">Sobre</a></li>
         </ul>
 
-        <div class="nav-actions" id="nav-actions">
+        <div class="nav-actions">
+            <a href="login.html" class="btn-login">Entrar</a>
+            <a href="cadastro.html" class="btn-cta">Começar Agora</a>
         </div>
     </nav>
 
@@ -152,7 +43,8 @@
         <main class="container">
             <section class="grid-categories">
 
-                <div class="card" onclick="abrirModal('modalTech', 'Tech', event)">
+                <!-- Card Tecnologia -->
+                  <div class="card" onclick="abrirModal('modalTech', 'Tecnologia', event)">
                     <div class="icon-wrapper icon-tech">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -165,6 +57,10 @@
                     <a href="#" class="link-tech">45 cursos disponíveis &rarr;</a>
                 </div>
 
+        
+
+
+                <!-- Card Design -->
                 <div class="card" onclick="abrirModal('modalDesign', 'Design', event)">
                     <div class="icon-wrapper icon-design">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
@@ -180,6 +76,7 @@
                     <a href="#" class="link-design ">32 cursos disponíveis &rarr;</a>
                 </div>
 
+                <!-- Card Idiomas -->
                 <div class="card" onclick="abrirModal('modalIdiomas', 'Idiomas', event)">
                     <div class="icon-wrapper icon-languages">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
@@ -190,23 +87,25 @@
                     </div>
                     <h2>Idiomas</h2>
                     <p>Inglês, espanhol, francês, alemão e mais</p>
-                    <a href="#" class="link-languages">42 cursos disponíveis &rarr;</a>
-                </div>
-
-                <div class="card" onclick="abrirModal('modalBusiness', 'Negócios', event)">
-                    <div class="icon-wrapper icon-business">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="20" x2="18" y2="10"></line>
-                            <line x1="12" y1="20" x2="12" y2="4"></line>
-                            <line x1="6" y1="20" x2="6" y2="14"></line>
-                        </svg>
+                    <a href="#" class="link-languages" >42 cursos disponíveis &rarr;</a>
                     </div>
-                    <h2>Negócios</h2>
-                    <p>Empreendedorismo, gestão, finanças e vendas</p>
-                    <a href="#" class="link-business">28 cursos disponíveis &rarr;</a>
+        
+                    <!-- Card Negócios -->
+                    <div class=" card" onclick="abrirModal('modalBusiness', 'Negócios', event)">
+                        <div class="icon-wrapper icon-business">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="20" x2="18" y2="10"></line>
+                                <line x1="12" y1="20" x2="12" y2="4"></line>
+                                <line x1="6" y1="20" x2="6" y2="14"></line>
+                            </svg>
+                        </div>
+                        <h2>Negócios</h2>
+                        <p>Empreendedorismo, gestão, finanças e vendas</p>
+                        <a href="#" class="link-business">28 cursos disponíveis &rarr;</a>
                 </div>
 
+                <!-- Card Marketing -->
                 <div class="card" onclick="abrirModal('modalMarketing', 'Marketing', event)">
                     <div class="icon-wrapper icon-marketing">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
@@ -220,6 +119,7 @@
                     <a href="#" class="link-marketing">38 cursos disponíveis &rarr;</a>
                 </div>
 
+                <!-- Card Profissões Técnicas -->
                 <div class="card" onclick="abrirModal('modalTechnical', 'Profissões Técnicas', event)">
                     <div class="icon-wrapper icon-technical">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
@@ -232,142 +132,282 @@
                     <h2>Profissões Técnicas</h2>
                     <p>Elétrica, mecânica, construção civil e mais</p>
                     <a href="#" class="link-technical">24 cursos disponíveis &rarr;</a>
-                </div>
-
-                <div class="card" onclick="abrirModal('modalSoft', 'Soft Skills', event)">
-                    <div class="icon-wrapper icon-soft">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
                     </div>
-                    <h2>Soft Skills</h2>
-                    <p>Comunicação, liderança e trabalho em equipe</p>
-                    <a href="#" class="link-soft">15 cursos disponíveis &rarr;</a>
+        
+                    <!-- Card Soft Skills -->
+                    <div class=" card" onclick="abrirModal('modalSoft', 'Soft Skills', event)">
+                        <div class="icon-wrapper icon-soft">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h2>Soft Skills</h2>
+                        <p>Comunicação, liderança e trabalho em equipe</p>
+                        <a href="#" class="link-soft">15 cursos disponíveis &rarr;</a>
                 </div>
 
             </section>
         </main>
 
         <div class="modal" id="modalTech">
+
             <div class="modal-content">
-                <button class="fechar" onclick="fecharModal('modalTech')">×</button>
+
+                <button class="fechar" onclick="fecharModal('modalTech')">
+                    ×
+                </button>
+
                 <div class="modal-header">
+
                     <h2>Cursos de Tecnologia</h2>
+
                     <p>6 cursos disponíveis</p>
+
                 </div>
-                <div class="cursos-grid" id="listaTech"></div>
+
+                <div class="cursos-grid" id="listaTecnologia">
+                </div>
+
             </div>
         </div>
 
         <div class="modal" id="modalDesign">
+
             <div class="modal-content">
-                <button class="fechar" onclick="fecharModal('modalDesign')">×</button>
+
+                <button class="fechar" onclick="fecharModal('modalDesign')">
+                    ×
+                </button>
+
                 <div class="modal-header">
+
                     <h2>Cursos de Design</h2>
+
                     <p>6 cursos disponíveis</p>
+
                 </div>
-                <div class="cursos-grid" id="listaDesign"></div>
+
+                <div class="cursos-grid" id="listaDesign">
+                </div>
+
             </div>
         </div>
 
         <div class="modal" id="modalIdiomas">
+
             <div class="modal-content">
-                <button class="fechar" onclick="fecharModal('modalIdiomas')">×</button>
+
+                <button class="fechar" onclick="fecharModal('modalIdiomas')">
+                    ×
+                </button>
+
                 <div class="modal-header">
+
                     <h2>Cursos de Idiomas</h2>
+
                     <p>6 cursos disponíveis</p>
+
                 </div>
-                <div class="cursos-grid" id="listaIdiomas"></div>
+
+                <div class="cursos-grid" id="listaIdiomas">
+                </div>
+
             </div>
         </div>
+
 
         <div class="modal" id="modalBusiness">
+
             <div class="modal-content">
-                <button class="fechar" onclick="fecharModal('modalBusiness')">×</button>
+
+                <button class="fechar" onclick="fecharModal('modalNegócios')">
+                    ×
+                </button>
+
                 <div class="modal-header">
+
                     <h2>Cursos de Negócios</h2>
+
                     <p>6 cursos disponíveis</p>
+
                 </div>
-                <div class="cursos-grid" id="listaBusiness"></div>
+
+                <div class="cursos-grid" id="listaBusiness">
+                </div>
+
             </div>
         </div>
+
 
         <div class="modal" id="modalMarketing">
+
             <div class="modal-content">
-                <button class="fechar" onclick="fecharModal('modalMarketing')">×</button>
+
+                <button class="fechar" onclick="fecharModal('modalMarketing')">
+                    ×
+                </button>
+
                 <div class="modal-header">
+
                     <h2>Cursos de Marketing</h2>
+
                     <p>6 cursos disponíveis</p>
+
                 </div>
-                <div class="cursos-grid" id="listaMarketing"></div>
+
+                <div class="cursos-grid" id="listaMarketing">
+                </div>
+
             </div>
         </div>
+
+
 
         <div class="modal" id="modalTechnical">
+
             <div class="modal-content">
-                <button class="fechar" onclick="fecharModal('modalTechnical')">×</button>
+
+                <button class="fechar" onclick="fecharModal('modalTechnical')">
+                    ×
+                </button>
+
                 <div class="modal-header">
-                    <h2>Cursos de Profissões Técnicas</h2>
+
+                    <h2>Cursos de </h2>
+
                     <p>6 cursos disponíveis</p>
+
                 </div>
-                <div class="cursos-grid" id="listaTechnical"></div>
+
+                <div class="cursos-grid" id="listaProfissões Técnicas">
+                </div>
+
             </div>
         </div>
 
+
         <div class="modal" id="modalSoft">
+
             <div class="modal-content">
-                <button class="fechar" onclick="fecharModal('modalSoft')">×</button>
+
+                <button class="fechar" onclick="fecharModal('modalSoft Skills')">
+                    ×
+                </button>
+
                 <div class="modal-header">
+
                     <h2>Cursos de Soft Skills</h2>
+
                     <p>6 cursos disponíveis</p>
+
                 </div>
-                <div class="cursos-grid" id="listaSoft"></div>
+
+                <div class="cursos-grid" id="listaSoft">
+                </div>
+
             </div>
         </div>
 
         <div class="modal" id="modalDetalhes">
-            <div class="detalhes-content">
-                <button class="fechar" onclick="fecharModal('modalDetalhes')">×</button>
-                <div class="detalhes-banner">
-                    <img src="img/design.jpg" class="banner-img">
-                    <div class="banner-overlay">
-                        <span class="tag">Design</span>
-                        <h2 id="tituloCurso">Figma do Zero ao Avançado</h2>
-                    </div>
-                </div>
 
-                <div class="curso-meta">
-                    <span>⭐ 4.9</span>
-                    <span>👥 2.200+ alunos</span>
-                    <span>⏱ 20h</span>
-                </div>
+    <div class="detalhes-content">
 
-                <div class="secao">
-                    <h3>Sobre o curso</h3>
-                    <p id="descricaoCurso">descrição</p>
-                </div>
+        <div class="detalhes-banner">
 
-                <div class="secao">
-                    <h3>Conteúdo do curso</h3>
-                    <div class="modulo">Módulo 1 • Introdução</div>
-                    <div class="modulo">Módulo 2 • Fundamentos</div>
-                    <div class="modulo">Módulo 3 • Projeto final</div>
-                </div>
+             <button
+            class="fechar"
+            onclick="fecharModal('modalDetalhes')">
+            ×
+        </button>
 
-                <div class="acoes">
-                    <button class="btn-lista">Adicionar à lista</button>
-                    <button class="btn-comecar">Começar agora</button>
-                </div>
+            <img
+                src="img/imagem 1.jpg"
+                class="banner-img">
+
+            <div class="banner-overlay">
+
+                <span class="tag">
+                    Design
+                </span>
+
+                <h2 id="tituloCurso">
+                    Figma do Zero ao Avançado
+                </h2>
+
             </div>
+
         </div>
+     
+
+        <!-- capa -->
+
+        <!-- info -->
+        <div class="curso-meta">
+
+            <span>⭐ 4.9</span>
+
+            <span>👥 2.200+ alunos</span>
+
+            <span>⏱ 20h</span>
+
+        </div>
+
+        <!-- descrição -->
+        <div class="secao">
+
+            <h3>Sobre o curso</h3>
+
+            <p id="descricaoCurso">
+                descrição
+            </p>
+
+        </div>
+
+        <!-- módulos -->
+        <div class="secao">
+
+            <h3>Conteúdo do curso</h3>
+
+            <div class="modulo">
+                Módulo 1 • Introdução
+            </div>
+
+            <div class="modulo">
+                Módulo 2 • Fundamentos
+            </div>
+
+            <div class="modulo">
+                Módulo 3 • Projeto final
+            </div>
+
+        </div>
+
+        <!-- botões -->
+        <div class="acoes">
+
+            <button class="btn-lista">
+                Adicionar à lista
+            </button>
+
+            <button class="btn-comecar">
+                Começar agora
+            </button>
+
+        </div>
+
+    </div>
+</div>
     </section>
+
+
 
     <footer class="footer">
         <div class="footer-container">
+
             <div class="footer-brand">
                 <div class="logo">
                     <div class="logo-icon">F+</div>
@@ -417,6 +457,7 @@
                     <li><a href="#">Termos de Uso</a></li>
                 </ul>
             </div>
+
         </div>
 
         <div class="footer-bottom">
@@ -424,74 +465,9 @@
         </div>
     </footer>
 
+
     <script src="forma.js/cursos.js"></script>
 
-    <script>
-        // 1. CONTROLE DO MENU HAMBÚRGUER UNIFICADO
-        const menuToggleBtn = document.getElementById('mobile-menu-btn');
-        const navbar = document.querySelector('.navbar');
-
-        if (menuToggleBtn && navbar) {
-            menuToggleBtn.addEventListener('click', () => {
-                // Alterna a classe principal no container pai (navbar)
-                navbar.classList.toggle('nav-active');
-
-                // Altera o ícone do botão hamburguer de forma segura
-                const icon = menuToggleBtn.querySelector('i');
-                if (icon) {
-                    if (navbar.classList.contains('nav-active')) {
-                        icon.className = 'fa-solid fa-xmark';
-                    } else {
-                        icon.className = 'fa-solid fa-bars';
-                    }
-                }
-            });
-        }
-
-        // 2. VERIFICAÇÃO DINÂMICA DO ESTADO DE LOGIN
-        function renderNavbarActions() {
-            const navActionsContainer = document.getElementById('nav-actions');
-            if (!navActionsContainer) return;
-
-            const isLogged = localStorage.getItem('userLogged') === 'true';
-
-            if (isLogged) {
-                // Estado Logado: Mostra a bolinha com a foto e o botão Sair embaixo centralizado
-                navActionsContainer.innerHTML = `
-                    <div class="user-profile-nav">
-                        <img src="img/IMG_PERFIL.avif" alt="Foto de Perfil" class="nav-avatar">
-                        <a href="#" id="btn-logout" class="btn-logout">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
-                    </div>
-                `;
-
-                // Evento de Clique no Botão Sair
-                document.getElementById('btn-logout').addEventListener('click', (e) => {
-                    e.preventDefault();
-
-                    // Limpa o estado ativo de login do navegador
-                    localStorage.setItem('userLogged', 'false');
-
-                    // Fecha o menu mobile antes de mudar de página
-                    if (navbar) navbar.classList.remove('nav-active');
-                    const icon = menuToggleBtn ? menuToggleBtn.querySelector('i') : null;
-                    if (icon) icon.className = 'fa-solid fa-bars';
-
-                    // Redireciona o usuário para index.html ao clicar em Sair
-                    window.location.href = 'index.html';
-                });
-
-            } else {
-                // Estado Deslogado: Renderiza as opções padrão (Entrar / Começar Agora)
-                navActionsContainer.innerHTML = `
-                    <a href="login.html" class="btn-login">Entrar</a>
-                    <a href="cadastro.html" class="btn-cta">Começar Agora</a>
-                `;
-            }
-        }
-
-        // Executa a verificação assim que a estrutura da página termina de carregar
-        renderNavbarActions();
-    </script>
 </body>
 
 </html>
