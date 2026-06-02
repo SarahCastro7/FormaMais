@@ -7,6 +7,7 @@
     <title>forma+ | Benefícios</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css/beneficios.css">
+    <link rel="stylesheet" href="style.css/tema.css">
 </head>
 
 <body>
@@ -31,6 +32,8 @@
             </ul>
 
             <div class="nav-actions" id="nav-actions">
+            </div>
+
             </div>
         </nav>
     </header>
@@ -75,10 +78,14 @@
                 <div class="detail-card">
                     <h4><i class="fa-solid fa-graduation-cap"></i> Para Sua Carreira</h4>
                     <ul class="detail-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Transição de carreira facilitada em até 6 meses.</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Portfólio completo estruturado com projetos reais.</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Networking ativo com mais de 5.000 professionals.</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Indicações diretas para vagas em empresas parceiras.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Transição de carreira facilitada em até 6 meses.
+                        </li>
+                        <li><i class="fa-solid fa-circle-check"></i> Portfólio completo estruturado com projetos reais.
+                        </li>
+                        <li><i class="fa-solid fa-circle-check"></i> Networking ativo com mais de 5.000 professionals.
+                        </li>
+                        <li><i class="fa-solid fa-circle-check"></i> Indicações diretas para vagas em empresas
+                            parceiras.</li>
                     </ul>
                 </div>
 
@@ -246,7 +253,7 @@
                 });
 
             } else {
-                 navActionsContainer.innerHTML = `
+                navActionsContainer.innerHTML = `
                     <a href="login.html" class="btn-login">Entrar</a>
                     <a href="cadastro.html" class="btn-cta">Começar Agora</a>
                 `;
@@ -256,6 +263,11 @@
         // Inicializa as ações de verificação de login ao carregar a página
         renderNavbarActions();
     </script>
+
+    <script src="tema.js"></script>
+
+</body>
+</html>
 </body>
 
 </html>
