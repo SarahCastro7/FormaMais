@@ -1,78 +1,70 @@
 import express from 'express';
-import formaService from '../Service/FormaMaisService.js'
-import { Result } from 'pg';
+import formaService from '../Service/FormaMaisService.js';
 
 export const FormaMaisRoute = express.Router();
 
-//aqui fica o get all 
+// GET ALL
 FormaMaisRoute.get('/', async (req, res) => {
     try {
         const formas = await formaService.getAll();
         res.json(formas);
     } catch (error) {
-        console.error('erro ao listar formas:', error);
+        console.error('Erro ao listar formas:', error);
         res.status(500).json({ message: error.message });
     }
 });
 
-//getById
-
+// GET BY ID
 FormaMaisRoute.get('/:id', async (req, res) => {
     try {
         const forma = await formaService.getById(req.params.id);
         res.json(forma);
     } catch (error) {
-        console.error('erro ao buscar forma por id: ', error);
+        console.error('Erro ao buscar forma por ID:', error);
         res.status(500).json({ message: error.message });
     }
 });
 
-//post
-
+// POST
 FormaMaisRoute.post('/', async (req, res) => {
     try {
         const forma = await formaService.create(req.body);
         res.status(201).json(forma);
     } catch (error) {
-        console.error('erro ao criar forma: ', error);
+        console.error('Erro ao criar forma:', error);
         res.status(500).json({ message: error.message });
     }
 });
 
-//put
-
-FormaMaisRoute.put('/:id', async (req, res) => { 
+// PUT
+FormaMaisRoute.put('/:id', async (req, res) => {
     try {
-        const forma = await formasService.update(req.params.id, req.body);
+        const forma = await formaService.update(req.params.id, req.body);
         res.json(forma);
     } catch (error) {
-        console.error('erro ao atualizar forma: ', error);
+        console.error('Erro ao atualizar forma:', error);
         res.status(500).json({ message: error.message });
     }
 });
 
-//patch 
-
-FormaMaisRoute.patch('/formas/:id', async (req, res) => {
+// PATCH
+FormaMaisRoute.patch('/:id', async (req, res) => {
     try {
-        const id = req.params.id;
-        const forma = await formasService.patch(req.params.id, req.body);
+        const forma = await formaService.patch(req.params.id, req.body);
         res.json(forma);
     } catch (error) {
-        console.error('erro ao atualizar forma: ', error);
+        console.error('Erro ao atualizar parcialmente a forma:', error);
         res.status(500).json({ message: error.message });
     }
 });
 
-//delete
-
+// DELETE
 FormaMaisRoute.delete('/:id', async (req, res) => {
     try {
-        const forma = await formasService.delete(req.params.id);
+        const forma = await formaService.delete(req.params.id);
         res.json(forma);
     } catch (error) {
-        console.error('erro ao excluir forma: ', error);
+        console.error('Erro ao excluir forma:', error);
         res.status(500).json({ message: error.message });
     }
 });
-
