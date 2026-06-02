@@ -25,7 +25,9 @@ body {
     padding: 15px 5%;
     background-color: #fff;
     border-bottom: 1px solid #f0f0f0;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 /* Estilo do Logo */
@@ -47,11 +49,11 @@ body {
 .logo-text {
     font-size: 1.4rem;
     font-weight: 800;
-    color: #1C2B3E
+    color: #1C2B3E;
 }
 
 .logo-text span {
-    color: #80CBF3
+    color: #80CBF3;
 }
 
 /* Links de Navegação */
@@ -71,11 +73,12 @@ body {
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
-    color: #1C2B3E
+.nav-links a:hover,
+.nav-links a.active-link {
+    color: #1C2B3E;
 }
 
-/* Ações e Botão */
+/* Ações e Botões */
 .nav-actions {
     display: flex;
     align-items: center;
@@ -104,10 +107,23 @@ body {
     opacity: 0.9;
 }
 
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #1C2B3E;
+}
+
 /* Seções Globais */
 section {
     padding: 80px 0;
     background: #f7f7f7;
+}
+
+section:nth-of-type(even) {
+    background: #ffffff;
 }
 
 .section-header {
@@ -137,7 +153,7 @@ section {
 /* Seção Sobre (Stats) */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
 }
 
@@ -176,7 +192,7 @@ section {
 /* Seção Pilares */
 .pillars-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
@@ -200,14 +216,8 @@ section {
     margin-bottom: 25px;
 }
 
-.icon-blue {
-    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
-}
-
-.icon-magenta {
-    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
-}
-
+.icon-blue,
+.icon-magenta,
 .icon-orange {
     background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
 }
@@ -226,7 +236,7 @@ section {
 /* Seção Equipe */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 
@@ -271,25 +281,11 @@ section {
     font-size: 0.95rem;
 }
 
-/* Responsividade Básica */
-@media (max-width: 900px) {
-    .nav-links {
-        display: none;
-    }
-
-    .section-header h2 {
-        font-size: 2rem;
-    }
-}
-
-
 /*---------------- FOOTER -----------------*/
-
 .footer {
     background-color: #0B1320;
     color: #fff;
-    padding: 80px 8% 40px;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    padding: 80px 5% 40px;
 }
 
 .footer-container {
@@ -300,26 +296,22 @@ section {
     margin: 0 auto;
 }
 
-/* Estilo do Logo no Footer */
 .footer-brand .logo {
     margin-bottom: 20px;
 }
 
 .footer-brand .logo-text {
     color: #fff;
-
 }
 
 .footer-desc {
     color: #94A3B8;
-
     line-height: 1.6;
     font-size: 0.95rem;
     margin-bottom: 25px;
     max-width: 300px;
 }
 
-/* Redes Sociais */
 .social-links {
     display: flex;
     gap: 12px;
@@ -344,7 +336,6 @@ section {
     transform: translateY(-3px);
 }
 
-/* Colunas de Links */
 .footer-links h4 {
     font-size: 1.1rem;
     font-weight: 700;
@@ -371,7 +362,6 @@ section {
     padding-left: 5px;
 }
 
-/* Parte de baixo */
 .footer-bottom {
     margin-top: 60px;
     padding-top: 30px;
@@ -381,16 +371,17 @@ section {
     font-size: 0.85rem;
 }
 
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #333;
+/* RESPONSIVIDADE MEDIA QUERIES */
+@media (max-width: 992px) {
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
-/* RESPONSIVIDADE*/
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
@@ -401,12 +392,13 @@ section {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 70px;
+        top: 73px;
         left: 0;
         background-color: #fff;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 20px 0;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+        padding: 20px;
         text-align: center;
+        gap: 20px;
         z-index: 999;
     }
 
@@ -415,11 +407,12 @@ section {
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 250px;
+        top: 255px;
         left: 0;
         background-color: #fff;
-        padding: 10px 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 0 20px 20px 20px;
+        box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+        gap: 15px;
         z-index: 999;
     }
 
@@ -439,6 +432,10 @@ section {
         grid-template-columns: 1fr !important;
         text-align: center;
         gap: 30px;
+    }
+
+    .footer-desc {
+        margin: 0 auto 20px auto;
     }
 
     .social-links {
