@@ -1,9 +1,10 @@
+
 let cursos = [];
 
 async function carregarCursos() {
     try {
         const resposta =
-            await fetch("http://localhost:3000/cursos");
+            await fetch("../../BackEnd/src/cursos.json");
 
         cursos = await resposta.json();
 
@@ -35,81 +36,42 @@ function fecharModal(idModal) {
     document.getElementById(idModal)
         .style.display = "none";
 }
-
-
 function mostrarCursos(categoria) {
-
-    const lista =
-        document.getElementById(
-            "lista" + categoria
-        );
-
+    const lista = document.getElementById("lista" + categoria);
     lista.innerHTML = "";
 
-    const filtrados =
-        cursos.filter(curso =>
-            curso.categoria_curso === categoria
-        );
+    // 1. ALTERADO: de 'categoria_curso' para 'materia'
+    const filtrados = cursos.filter(curso => curso.materia === categoria);
 
     filtrados.forEach(curso => {
-
-        const card =
-            document.createElement("div");
-
+        const card = document.createElement("div");
         card.classList.add("curso-card");
 
         card.innerHTML = `
-    <img
-        src="img/design.jpg"
-        class="curso-img">
+            <img src="img/imagem 1.jpg" class="curso-img">
+            <div class="curso-body">
+                <span class="nivel">${curso.nivel || "Iniciante"}</span>
+                <h3>${curso.nome_curso}</h3>
+                
+                <p>Professor: ${curso.professor}</p> 
 
-    <div class="curso-body">
+                <div class="curso-info">
+                    <span>⭐ 4.8</span>
+                    
+                    <span>⏱ ${curso.tempo_curso}</span> 
+                </div>
+            </div>
+        `;
 
-        <span class="nivel">
-            ${curso.nivel || "Iniciante"}
-        </span>
+        card.onclick = function (event) {
+            document.getElementById("tituloCurso").textContent = curso.nome_curso;
+            
+            // Ajuste aqui também para exibir o professor nos detalhes
+            document.getElementById("descricaoCurso").textContent = "Professor: " + curso.professor;
 
-        <h3>
-            ${curso.nome_curso}
-        </h3>
+            abrirModal("modalDetalhes", "", event);
+        };
 
-        <p>
-            ${curso.descricao || ""}
-        </p>
-
-        <div class="curso-info">
-
-            <span>⭐ 4.8</span>
-
-            <span>
-                ⏱ ${curso.carga_horaria || "20h"}
-            </span>
-
-        </div>
-
-    </div>
-`;
-
-       card.onclick = function () {
-
-    document
-        .getElementById("tituloCurso")
-        .textContent =
-        curso.nome_curso;
-
-    document
-        .getElementById("descricaoCurso")
-        .textContent =
-        curso.descricao || "";
-
-    abrirModal(
-        "modalDetalhes",
-        "",
-        event
-    );
-};
-
-lista.appendChild(card);
-
+        lista.appendChild(card);
     });
 }
