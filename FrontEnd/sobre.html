@@ -7,6 +7,55 @@
     <title>forma+ | Sobre</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css/sobre.css">
+
+    <style>
+        .user-profile-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .btn-logout {
+            text-decoration: none;
+            color: #ef4444;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-logout:hover {
+            color: #dc2626;
+            transform: translateX(2px);
+        }
+
+        @media (max-width: 768px) {
+            .user-profile-nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 0;
+                width: 100%;
+            }
+
+            .nav-avatar {
+                width: 55px;
+                height: 55px;
+            }
+
+            .btn-logout {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -30,9 +79,7 @@
                 <li><a href="sobre.html" class="active-link">Sobre</a></li>
             </ul>
 
-            <div class="nav-actions">
-                <a href="login.html" class="btn-login">Entrar</a>
-                <a href="cadastro.html" class="btn-cta">Começar Agora</a>
+            <div class="nav-actions" id="nav-actions">
             </div>
         </nav>
     </header>
@@ -231,17 +278,63 @@
         const navLinks = document.querySelector('.nav-links');
         const navActions = document.querySelector('.nav-actions');
 
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            navActions.classList.toggle('active');
+        // Lógica do Menu Hamburguer Responsivo
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                navActions.classList.toggle('active');
 
-            const icon = mobileMenu.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.className = 'fa-solid fa-xmark';
+                const icon = mobileMenu.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.className = 'fa-solid fa-xmark';
+                } else {
+                    icon.className = 'fa-solid fa-bars';
+                }
+            });
+        }
+
+        // LÓGICA DE RENDERIZAÇÃO DO PERFIL (Inspirada e adaptada do seu Index)
+        function renderNavbarActions() {
+            const navActionsContainer = document.getElementById('nav-actions');
+            if (!navActionsContainer) return;
+
+            // Altere para 'true' se quiser forçar o teste da bolinha manualmente
+            const isLogged = localStorage.getItem('userLogged') === 'true';
+
+            if (isLogged) {
+                // Injeta exatamente a bolinha do perfil com o botão sair do index
+                navActionsContainer.innerHTML = `
+                    <div class="user-profile-nav">
+                        <img src="img/IMG_PERFIL.avif" alt="Foto de Perfil" class="nav-avatar">
+                        <a href="#" id="btn-logout" class="btn-logout">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
+                    </div>
+                `;
+
+                // Configura o evento do botão de deslogar
+                document.getElementById('btn-logout').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.setItem('userLogged', 'false');
+
+                    // Remove classes de menu aberto caso esteja no mobile
+                    navLinks.classList.remove('active');
+                    navActionsContainer.classList.remove('active');
+                    if (mobileMenu.querySelector('i')) mobileMenu.querySelector('i').className = 'fa-solid fa-bars';
+
+                    // Re-renderiza o cabeçalho mudando para o modo deslogado
+                    renderNavbarActions();
+                });
+
             } else {
-                icon.className = 'fa-solid fa-bars';
+                // Injeta os botões padrões para usuários deslogados
+                navActionsContainer.innerHTML = `
+                    <a href="login.html" class="btn-login">Entrar</a>
+                    <a href="cadastro.html" class="btn-start">Começar Agora</a>
+                `;
             }
-        });
+        }
+
+        // Inicializa as ações do topo ao carregar o documento
+        document.addEventListener('DOMContentLoaded', renderNavbarActions);
     </script>
 </body>
 

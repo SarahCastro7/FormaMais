@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css/perfil.css">
 </head>
+
 <body>
- <nav class="navbar">
+    <nav class="navbar">
         <div class="logo">
             <div class="logo-icon">F+</div>
             <span class="logo-text">forma<span>+</span></span>
@@ -25,31 +27,39 @@
         </ul>
 
         <div class="nav-actions">
-            <button class="btn-login" id="btnLogin">Entrar</button>
-            <a href="cadastro.html" class="btn-cta" id="btnCta">Começar Agora</a>
-            
-            <div class="menu-avatar hidden" id="menuAvatar">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=150&h=150&q=80" alt="Perfil" class="user-img">
+            <button class="btn-login hidden" id="btnLogin">Entrar</button>
+            <a href="cadastro.html" class="btn-cta hidden" id="btnCta">Começar Agora</a>
+
+            <div class="menu-avatar" id="menuAvatar" style="cursor: pointer;">
+                <img src="img/IMG_PERFIL.avif"
+                    alt="Perfil" class="user-img" id="navUserImg">
             </div>
         </div>
     </nav>
-    <div class="modal" id="profileModal">
-        
+
+    <div class="modal hidden" id="profileModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+
         <div class="card" id="viewCard">
             <button class="btn-close" id="closeView">&times;</button>
-            
+
             <div class="header">
                 <div class="avatar">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=150&h=150&q=80" alt="Foto" class="user-img">
+                    <img src="img/IMG_PERFIL.avif"
+                        alt="Foto" class="user-img view-avatar-img">
                 </div>
                 <h2 id="txt-name">Ana Carolina Silva</h2>
-                <p class="subtitle">Desenvolvedora em Formação</p>
+                <p class="subtitle" id="txt-role">Desenvolvedora em Formação</p>
+                <p class="user-bio" id="txt-bio"
+                    style="font-size: 0.9rem; color: #64748B; margin-top: 8px; max-width: 280px; text-align: center;">
+                    Apaixonada por tecnologia e criando soluções web incríveis.</p>
             </div>
 
             <div class="stats">
                 <div class="box purple"><span class="num">12</span><span class="label">Cursos</span></div>
                 <div class="box blue"><span class="num">240h</span><span class="label">Estudadas</span></div>
-                <div class="box pink"><span class="num">8</span><span class="label">Matches</span></div>
+                <div class="box pink"><span class="num" id="stat-matches">8</span><span class="label">Matches</span>
+                </div>
             </div>
 
             <div class="info">
@@ -61,11 +71,15 @@
                     <i class="fa-regular fa-envelope"></i>
                     <span id="txt-email">ana.silva@email.com</span>
                 </div>
+                <div class="item">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span id="txt-specialty">Front-End</span>
+                </div>
             </div>
 
             <div class="skills">
                 <h3>Habilidades</h3>
-                <div class="tags">
+                <div class="tags" id="view-skills-tags">
                     <span class="tag">React</span>
                     <span class="tag">JavaScript</span>
                     <span class="tag">Design</span>
@@ -78,89 +92,98 @@
 
         <div class="card hidden" id="editCard">
             <button class="btn-close" id="closeEdit">&times;</button>
-            
+
             <form id="editForm" onsubmit="event.preventDefault();">
                 <div class="header">
                     <div class="avatar is-editing">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=150&h=150&q=80" alt="Foto" class="user-img">
+                        <img src="img/IMG_PERFIL.avif"
+                            alt="Foto" class="user-img edit-avatar-img">
                         <label class="cam-icon" for="fileInput">
                             <i class="fa-solid fa-camera"></i>
                         </label>
                         <input type="file" id="fileInput" accept="image/*" style="display: none;">
                     </div>
-                    
-                    <div class="input-box">
-                        <input type="text" id="in-name" value="Ana Carolina Silva" required>
+
+                    <div class="input-box" style="margin-top: 10px; width: 100%;">
+                        <label
+                            style="font-size: 0.8rem; font-weight: 600; color: #475569; display:block; text-align:left;">Nome
+                            Completo</label>
+                        <input type="text" id="in-name" value="Ana Carolina Silva" required
+                            style="width: 100%; padding: 8px; border: 1px solid #CBD5E1; border-radius: 6px;">
                     </div>
-                    <div class="input-box">
-                        <input type="text" id="in-role" value="Desenvolvedora em Formação">
+                    <div class="input-box" style="margin-top: 10px; width: 100%;">
+                        <label
+                            style="font-size: 0.8rem; font-weight: 600; color: #475569; display:block; text-align:left;">Cargo
+                            / Status</label>
+                        <input type="text" id="in-role" value="Desenvolvedora em Formação"
+                            style="width: 100%; padding: 8px; border: 1px solid #CBD5E1; border-radius: 6px;">
+                    </div>
+                    <div class="input-box" style="margin-top: 10px; width: 100%;">
+                        <label
+                            style="font-size: 0.8rem; font-weight: 600; color: #475569; display:block; text-align:left;">Descrição
+                            / Biografia</label>
+                        <textarea id="in-bio"
+                            style="width: 100%; padding: 8px; border: 1px solid #CBD5E1; border-radius: 6px; resize: none; font-family: inherit; font-size: 0.9rem;"
+                            rows="2">Apaixonada por tecnologia e criando soluções web incríveis.</textarea>
                     </div>
                 </div>
 
-                <div class="stats">
-                    <div class="box purple"><span class="num">12</span><span class="label">Cursos</span></div>
-                    <div class="box blue"><span class="num">240h</span><span class="label">Estudadas</span></div>
-                    <div class="box pink"><span class="num">8</span><span class="label">Matches</span></div>
-                </div>
-
-                <div class="fields">
-                    <div class="input-inline">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <input type="text" id="in-location" value="São Paulo, SP">
-                    </div>
-                    
-                    <div class="input-inline">
-                        <i class="fa-regular fa-envelope"></i>
-                        <input type="email" id="in-email" value="ana.silva@email.com" required>
+                <div class="fields" style="margin-top: 15px;">
+                    <div class="input-inline"
+                        style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <i class="fa-solid fa-location-dot" style="width: 20px;"></i>
+                        <input type="text" id="in-location" value="São Paulo, SP"
+                            style="flex: 1; padding: 6px; border: 1px solid #CBD5E1; border-radius: 6px;">
                     </div>
 
-                    <div class="input-inline">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" id="in-pass" placeholder="Nova Senha">
+                    <div class="input-inline"
+                        style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <i class="fa-regular fa-envelope" style="width: 20px;"></i>
+                        <input type="email" id="in-email" value="ana.silva@email.com" required
+                            style="flex: 1; padding: 6px; border: 1px solid #CBD5E1; border-radius: 6px;">
+                    </div>
+
+                    <div class="input-inline"
+                        style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <i class="fa-solid fa-graduation-cap" style="width: 20px;"></i>
+                        <select id="in-specialty"
+                            style="flex: 1; padding: 6px; border: 1px solid #CBD5E1; border-radius: 6px; background: white;">
+                            <option value="Front-End">Front-End (Tecnologia)</option>
+                            <option value="Back-End">Back-End (Tecnologia)</option>
+                            <option value="Marketing Digital">Marketing Digital</option>
+                            <option value="Design UX/UI">Design UX/UI</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="skills">
-                    <h3>Habilidades</h3>
-                    <div class="tags">
-                        <span class="tag">React</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">Design</span>
-                        <span class="tag">Inglês</span>
-                    </div>
+                    <h3>Habilidades (Separadas por vírgula)</h3>
+                    <input type="text" id="in-skills" value="React, JavaScript, Design, Inglês"
+                        style="width: 100%; padding: 8px; border: 1px solid #CBD5E1; border-radius: 6px; font-size: 0.9rem;">
                 </div>
 
-                <div class="actions">
-                    <button type="button" class="btn-sub" id="cancelBtn">Cancelar</button>
-                    <button type="submit" class="btn-main" id="saveBtn">
+                <div class="actions" style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="button" class="btn-sub" id="cancelBtn" style="flex: 1;">Cancelar</button>
+                    <button type="submit" class="btn-main" id="saveBtn" style="flex: 1;">
                         <i class="fa-solid fa-check"></i> Salvar
                     </button>
                 </div>
             </form>
         </div>
-
     </div>
-
-
-
-
-
-
-
-
 
     <section class="secao-match">
         <div class="cabecalho">
             <span class="tag-topo"><i class="fa-solid fa-bolt"></i> Nosso Diferencial Exclusivo</span>
             <h1>More Match - Seu Match Profissional</h1>
             <p class="descricao">
-                Sistema inteligente que conecta você com empresas enquanto estuda. À medida que completa cursos, recebe matches com vagas compatíveis com suas habilidades!
+                Sistema inteligente que conecta você com empresas enquanto estuda. À medida que completa cursos, recebe
+                matches com vagas compatíveis com suas habilidades!
             </p>
         </div>
 
         <div class="conteudo">
             <div class="coluna-esquerda">
-                
                 <div class="item-beneficio" id="beneficio-match">
                     <div class="icone-box rosa"><i class="fa-regular fa-heart"></i></div>
                     <div class="texto-beneficio">
@@ -199,40 +222,40 @@
                         <span class="mini-logo">🏢</span>
                         <span class="mini-logo">🍇</span>
                         <span class="mini-logo">🛍️</span>
-                        <span class="contador-mais">+12</span>
+                        <span class="contador-mais" id="live-counter">+12</span>
                     </div>
                 </div>
-
             </div>
 
             <div class="coluna-direita">
                 <div class="card-vaga" id="cardVaga">
-                    <span class="tag-match">92% Match</span>
-                    
-                    <div class="empresa-logo" id="logoPrincipal" style="background-color: #ff5722;">
-                        <i class="fa-solid fa-border-all"></i>
+                    <span class="tag-match" id="vagaMatchPercent">92% Match</span>
+
+                    <div class="empresa-logo" id="logoPrincipal"
+                        style="background-color: #2181BD; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; border-radius: 12px; width: 60px; height: 60px;">
+                        <i class="fa-solid fa-code" id="vagaIcon"></i>
                     </div>
 
-                    <h2 class="titulo-vaga">Analista de Marketing Digital</h2>
-                    <span class="nome-empresa"><i class="fa-solid fa-building-columns"></i> Marketing Pro</span>
+                    <h2 class="titulo-vaga" id="vagaTitle">Carregando Vaga Perfeita...</h2>
+                    <span class="nome-empresa" id="vagaCompany"><i class="fa-solid fa-building"></i> Tech
+                        Solutions</span>
 
                     <div class="detalhes-vaga">
-                        <p><i class="fa-solid fa-location-dot"></i> Remoto</p>
-                        <p class="salario"><i class="fa-solid fa-dollar-sign"></i> R$ 3.000 - R$ 4.500</p>
+                        <p><i class="fa-solid fa-location-dot"></i> <span id="vagaLocation">Remoto</span></p>
+                        <p class="salario"><i class="fa-solid fa-dollar-sign"></i> <span id="vagaSalary">R$ 4.500</span>
+                        </p>
                     </div>
 
                     <div class="skills-section">
                         <span class="label-skills">Skills necessárias:</span>
-                        <div class="lista-skills">
-                            <span class="tag-skill">SEO</span>
-                            <span class="tag-skill">Google Ads</span>
-                            <span class="tag-skill">Redes Sociais</span>
+                        <div class="lista-skills" id="vagaSkillsTags">
                         </div>
                     </div>
 
                     <div class="acoes-vaga">
                         <button class="btn-recusar" id="btnPassar"><i class="fa-solid fa-xmark"></i> Passar</button>
-                        <button class="btn-aceitar" id="btnInteressado"><i class="fa-regular fa-heart"></i> Interessado</button>
+                        <button class="btn-aceitar" id="btnInteressado"><i class="fa-regular fa-heart"></i>
+                            Interessado</button>
                     </div>
                 </div>
             </div>
@@ -241,4 +264,5 @@
 
     <script src="forma.js/perfil.js"></script>
 </body>
+
 </html>

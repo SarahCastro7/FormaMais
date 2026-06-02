@@ -7,6 +7,57 @@
     <title>Forma+</title>
     <link rel="stylesheet" href="style.css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        .user-profile-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover
+        }
+
+        .btn-logout {
+            text-decoration: none;
+            color: #ef4444;
+            /* Vermelho suave para indicar saída */
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-logout:hover {
+            color: #dc2626;
+            transform: translateX(2px);
+        }
+
+        /* Responsividade para o menu mobile */
+        @media (max-width: 768px) {
+            .user-profile-nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 0;
+                width: 100%;
+            }
+
+            .nav-avatar {
+                width: 55px;
+                height: 55px;
+            }
+
+            .btn-logout {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -18,8 +69,7 @@
                 style="text-decoration: none; color: inherit;">forma<span>+</span></a>
         </div>
 
-        <button class="menu-toggle" aria-label="Abrir menu"
-            onclick="document.querySelector('.navbar').classList.toggle('nav-active')">
+        <button class="menu-toggle" aria-label="Abrir menu" id="mobile-menu-btn">
             <i class="fa-solid fa-bars"></i>
         </button>
 
@@ -30,9 +80,7 @@
             <li><a href="sobre.html">Sobre</a></li>
         </ul>
 
-        <div class="nav-actions">
-            <a href="login.html" class="btn-login">Entrar</a>
-            <a href="cadastro.html" class="btn-cta">Começar Agora</a>
+        <div class="nav-actions" id="nav-actions">
         </div>
     </nav>
 
@@ -183,6 +231,59 @@
         </div>
     </footer>
 
+    <script>
+        const menuToggleBtn = document.getElementById('mobile-menu-btn');
+        const navbar = document.querySelector('.navbar');
+
+        if (menuToggleBtn) {
+            menuToggleBtn.addEventListener('click', () => {
+                navbar.classList.toggle('nav-active');
+
+                const icon = menuToggleBtn.querySelector('i');
+                if (navbar.classList.contains('nav-active')) {
+                    icon.className = 'fa-solid fa-xmark';
+                } else {
+                    icon.className = 'fa-solid fa-bars';
+                }
+            });
+        }
+
+        function renderNavbarActions() {
+            const navActionsContainer = document.getElementById('nav-actions');
+            if (!navActionsContainer) return;
+
+            const isLogged = localStorage.getItem('userLogged') === 'true';
+
+            if (isLogged) {
+                navActionsContainer.innerHTML = `
+                    <div class="user-profile-nav">
+                        <img src="img/IMG_PERFIL.avif" alt="Foto de Perfil" class="nav-avatar">
+                        <a href="#" id="btn-logout" class="btn-logout">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
+                    </div>
+                `;
+
+                document.getElementById('btn-logout').addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    localStorage.setItem('userLogged', 'false');
+
+                    navbar.classList.remove('nav-active');
+                    if (menuToggleBtn.querySelector('i')) menuToggleBtn.querySelector('i').className = 'fa-solid fa-bars';
+
+                    renderNavbarActions();
+                });
+
+            } else {
+                 navActionsContainer.innerHTML = `
+                    <a href="login.html" class="btn-login">Entrar</a>
+                    <a href="cadastro.html" class="btn-cta">Começar Agora</a>
+                `;
+            }
+        }
+
+        // Executa a verificação assim que a estrutura da página termina de carregar
+        renderNavbarActions();
+    </script>
 </body>
 
 </html>
