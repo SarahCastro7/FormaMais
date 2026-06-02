@@ -1,0 +1,197 @@
+[
+  {
+    "id": 1,
+    "nome_curso": "Lógica de Programação",
+    "tempo_curso": "40 horas",
+    "professor": "Carlos Mendes",
+    "materia": "Tecnologia"
+  },
+  {
+    "id": 2,
+    "nome_curso": "HTML e CSS",
+    "tempo_curso": "30 horas",
+    "professor": "Fernanda Lima",
+    "materia": "Tecnologia"
+  },
+  {
+    "id": 3,
+    "nome_curso": "JavaScript Básico",
+    "tempo_curso": "45 horas",
+    "professor": "Lucas Pereira",
+    "materia": "Tecnologia"
+  },
+  {
+    "id": 4,
+    "nome_curso": "React Fundamentals",
+    "tempo_curso": "50 horas",
+    "professor": "Mariana Costa",
+    "materia": "Tecnologia"
+  },
+  {
+    "id": 5,
+    "nome_curso": "Node.js Completo",
+    "tempo_curso": "55 horas",
+    "professor": "João Alves",
+    "materia": "Tecnologia"
+  },
+  {
+    "id": 6,
+    "nome_curso": "Banco de Dados SQL",
+    "tempo_curso": "35 horas",
+    "professor": "Rafael Souza",
+    "materia": "Tecnologia"
+  },
+  {
+    "id": 7,
+    "nome_curso": "Python para Iniciantes",
+    "tempo_curso": "40 horas",
+    "professor": "Camila Rocha",
+    "materia": "Tecnologia"
+  },
+  {
+    "id": 8,
+    "nome_curso": "Desenvolvimento Mobile",
+    "tempo_curso": "60 horas",
+    "professor": "Eduardo Silva",
+    "materia": "Tecnologia"
+  },
+  {
+    "id": 9,
+    "nome_curso": "Segurança da Informação",
+    "tempo_curso": "50 horas",
+    "professor": "Patrícia Martins",
+    "materia": "Tecnologia"
+  },
+
+  {
+    "id": 10,
+    "nome_curso": "Fundamentos do Design",
+    "tempo_curso": "25 horas",
+    "professor": "Ana Costa",
+    "materia": "Design"
+  },
+  {
+    "id": 11,
+    "nome_curso": "Design Gráfico",
+    "tempo_curso": "40 horas",
+    "professor": "Bruno Lima",
+    "materia": "Design"
+  },
+  {
+    "id": 12,
+    "nome_curso": "UI Design",
+    "tempo_curso": "35 horas",
+    "professor": "Carla Souza",
+    "materia": "Design"
+  },
+
+  {
+    "id": 19,
+    "nome_curso": "Inglês Básico",
+    "tempo_curso": "60 horas",
+    "professor": "Ricardo Gomes",
+    "materia": "Idiomas"
+  },
+  {
+    "id": 20,
+    "nome_curso": "Inglês Intermediário",
+    "tempo_curso": "70 horas",
+    "professor": "Juliana Rocha",
+    "materia": "Idiomas"
+  },
+  {
+    "id": 21,
+    "nome_curso": "Espanhol Básico",
+    "tempo_curso": "50 horas",
+    "professor": "Daniel Silva",
+    "materia": "Idiomas"
+  },
+
+  {
+    "id": 28,
+    "nome_curso": "Empreendedorismo",
+    "tempo_curso": "30 horas",
+    "professor": "Roberto Santos",
+    "materia": "Negócios"
+  },
+  {
+    "id": 29,
+    "nome_curso": "Gestão de Projetos",
+    "tempo_curso": "45 horas",
+    "professor": "Paula Ferreira",
+    "materia": "Negócios"
+  },
+  {
+    "id": 30,
+    "nome_curso": "Gestão Financeira",
+    "tempo_curso": "40 horas",
+    "professor": "Marcelo Costa",
+    "materia": "Negócios"
+  },
+
+  {
+    "id": 37,
+    "nome_curso": "Marketing Digital",
+    "tempo_curso": "50 horas",
+    "professor": "Gabriel Oliveira",
+    "materia": "Marketing"
+  },
+  {
+    "id": 38,
+    "nome_curso": "Marketing de Conteúdo",
+    "tempo_curso": "35 horas",
+    "professor": "Larissa Mendes",
+    "materia": "Marketing"
+  },
+  {
+    "id": 39,
+    "nome_curso": "SEO para Iniciantes",
+    "tempo_curso": "25 horas",
+    "professor": "Felipe Rocha",
+    "materia": "Marketing"
+  },
+
+  {
+    "id": 46,
+    "nome_curso": "Eletricista Residencial",
+    "tempo_curso": "70 horas",
+    "professor": "Márcio Pereira",
+    "materia": "Profissões Técnicas"
+  },
+  {
+    "id": 47,
+    "nome_curso": "Mecânica Industrial",
+    "tempo_curso": "90 horas",
+    "professor": "Eduardo Santos",
+    "materia": "Profissões Técnicas"
+  },
+  {
+    "id": 48,
+    "nome_curso": "Soldagem Básica",
+    "tempo_curso": "60 horas",
+    "professor": "André Lima",
+    "materia": "Profissões Técnicas"
+  },
+
+  {
+    "id": 55,
+    "nome_curso": "Comunicação Eficaz",
+    "tempo_curso": "20 horas",
+    "professor": "Beatriz Gomes",
+    "materia": "Soft Skills"
+  },
+  {
+    "id": 56,
+    "nome_curso": "Trabalho em Equipe",
+    "tempo_curso": "25 horas",
+    "professor": "Leonardo Costa",
+    "materia": "Soft Skills"
+  },
+  {
+    "id": 57,
+    "nome_curso": "Liderança",
+    "tempo_curso": "30 horas",
+    "professor": "Vanessa Martins",
+    "materia": "Soft Skills"
+  }
+]

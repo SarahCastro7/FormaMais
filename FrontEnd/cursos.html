@@ -44,7 +44,7 @@
             <section class="grid-categories">
 
                 <!-- Card Tecnologia -->
-                <div class="card" onclick="abrirModal('modalTech', 'Tech', event)">
+                  <div class="card" onclick="abrirModal('modalTech', 'Tecnologia', event)">
                     <div class="icon-wrapper icon-tech">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -56,6 +56,9 @@
                     <p>Programação, desenvolvimento web, mobile e muito mais</p>
                     <a href="#" class="link-tech">45 cursos disponíveis &rarr;</a>
                 </div>
+
+        
+
 
                 <!-- Card Design -->
                 <div class="card" onclick="abrirModal('modalDesign', 'Design', event)">
@@ -84,7 +87,7 @@
                     </div>
                     <h2>Idiomas</h2>
                     <p>Inglês, espanhol, francês, alemão e mais</p>
-                    <a href="#" class="link-languages" ">42 cursos disponíveis &rarr;</a>
+                    <a href="#" class="link-languages" >42 cursos disponíveis &rarr;</a>
                     </div>
         
                     <!-- Card Negócios -->
@@ -128,7 +131,7 @@
                     </div>
                     <h2>Profissões Técnicas</h2>
                     <p>Elétrica, mecânica, construção civil e mais</p>
-                    <a href="#" class="link-technical"">24 cursos disponíveis &rarr;</a>
+                    <a href="#" class="link-technical">24 cursos disponíveis &rarr;</a>
                     </div>
         
                     <!-- Card Soft Skills -->
@@ -166,7 +169,7 @@
 
                 </div>
 
-                <div class="cursos-grid" id="listaTech">
+                <div class="cursos-grid" id="listaTecnologia">
                 </div>
 
             </div>
@@ -221,7 +224,7 @@
 
             <div class="modal-content">
 
-                <button class="fechar" onclick="fecharModal('modalBusiness')">
+                <button class="fechar" onclick="fecharModal('modalNegócios')">
                     ×
                 </button>
 
@@ -280,7 +283,7 @@
 
                 </div>
 
-                <div class="cursos-grid" id="listaTechnical">
+                <div class="cursos-grid" id="listaProfissões Técnicas">
                 </div>
 
             </div>
@@ -291,7 +294,7 @@
 
             <div class="modal-content">
 
-                <button class="fechar" onclick="fecharModal('modalSoft')">
+                <button class="fechar" onclick="fecharModal('modalSoft Skills')">
                     ×
                 </button>
 
@@ -313,17 +316,16 @@
 
     <div class="detalhes-content">
 
-        <button
+        <div class="detalhes-banner">
+
+             <button
             class="fechar"
             onclick="fecharModal('modalDetalhes')">
             ×
         </button>
 
-        <!-- capa -->
-        <div class="detalhes-banner">
-
             <img
-                src="img/design.jpg"
+                src="img/imagem 1.jpg"
                 class="banner-img">
 
             <div class="banner-overlay">
@@ -339,6 +341,9 @@
             </div>
 
         </div>
+     
+
+        <!-- capa -->
 
         <!-- info -->
         <div class="curso-meta">

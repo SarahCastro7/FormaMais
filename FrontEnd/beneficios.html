@@ -19,7 +19,7 @@
                     style="text-decoration: none; color: inherit;">forma<span>+</span></a>
             </div>
 
-            <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menu">
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Abrir menu">
                 <i class="fa-solid fa-bars"></i>
             </button>
 
@@ -30,9 +30,7 @@
                 <li><a href="sobre.html">Sobre</a></li>
             </ul>
 
-            <div class="nav-actions">
-                <a href="login.html" class="btn-login">Entrar</a>
-                <a href="cadastro.html" class="btn-cta">Começar Agora</a>
+            <div class="nav-actions" id="nav-actions">
             </div>
         </nav>
     </header>
@@ -77,14 +75,10 @@
                 <div class="detail-card">
                     <h4><i class="fa-solid fa-graduation-cap"></i> Para Sua Carreira</h4>
                     <ul class="detail-list">
-                        <li><i class="fa-solid fa-circle-check"></i> Transição de carreira facilitada em até 6 meses.
-                        </li>
-                        <li><i class="fa-solid fa-circle-check"></i> Portfólio completo estruturado com projetos reais.
-                        </li>
-                        <li><i class="fa-solid fa-circle-check"></i> Networking ativo com mais de 5.000 professionals.
-                        </li>
-                        <li><i class="fa-solid fa-circle-check"></i> Indicações diretas para vagas em empresas
-                            parceiras.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Transição de carreira facilitada em até 6 meses.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Portfólio completo estruturado com projetos reais.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Networking ativo com mais de 5.000 professionals.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Indicações diretas para vagas em empresas parceiras.</li>
                     </ul>
                 </div>
 
@@ -103,7 +97,7 @@
                     <ul class="detail-list">
                         <li><i class="fa-solid fa-circle-check"></i> Mentorias 1-on-1 com especialistas do mercado.</li>
                         <li><i class="fa-solid fa-circle-check"></i> Feedback personalizado em todos os projetos.</li>
-                        <li><i class="fa-solid fa-circle-check"></i> Comunidade ativa de apoio 24/7.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Comunidade activa de apoio 24/7.</li>
                         <li><i class="fa-solid fa-circle-check"></i> Atualizações constantes de conteúdo.</li>
                     </ul>
                 </div>
@@ -210,21 +204,57 @@
     </footer>
 
     <script>
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        const navActions = document.querySelector('.nav-actions');
+        const menuToggleBtn = document.getElementById('mobile-menu-btn');
+        const navbar = document.querySelector('.navbar');
 
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            navActions.classList.toggle('active');
+        if (menuToggleBtn) {
+            menuToggleBtn.addEventListener('click', () => {
+                navbar.classList.toggle('nav-active');
 
-            const icon = mobileMenu.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.className = 'fa-solid fa-xmark';
+                const icon = menuToggleBtn.querySelector('i');
+                if (navbar.classList.contains('nav-active')) {
+                    icon.className = 'fa-solid fa-xmark';
+                } else {
+                    icon.className = 'fa-solid fa-bars';
+                }
+            });
+        }
+
+        function renderNavbarActions() {
+            const navActionsContainer = document.getElementById('nav-actions');
+            if (!navActionsContainer) return;
+
+            const isLogged = localStorage.getItem('userLogged') === 'true';
+
+            if (isLogged) {
+                navActionsContainer.innerHTML = `
+                    <div class="user-profile-nav">
+                        <img src="img/IMG_PERFIL.avif" alt="Foto de Perfil" class="nav-avatar">
+                        <a href="#" id="btn-logout" class="btn-logout">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
+                    </div>
+                `;
+
+                document.getElementById('btn-logout').addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    localStorage.setItem('userLogged', 'false');
+
+                    navbar.classList.remove('nav-active');
+                    if (menuToggleBtn.querySelector('i')) menuToggleBtn.querySelector('i').className = 'fa-solid fa-bars';
+
+                    renderNavbarActions();
+                });
+
             } else {
-                icon.className = 'fa-solid fa-bars';
+                 navActionsContainer.innerHTML = `
+                    <a href="login.html" class="btn-login">Entrar</a>
+                    <a href="cadastro.html" class="btn-cta">Começar Agora</a>
+                `;
             }
-        });
+        }
+
+        // Inicializa as ações de verificação de login ao carregar a página
+        renderNavbarActions();
     </script>
 </body>
 

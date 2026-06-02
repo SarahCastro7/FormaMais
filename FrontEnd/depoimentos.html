@@ -18,21 +18,18 @@
                 style="text-decoration: none; color: inherit;">forma<span>+</span></a>
         </div>
 
-        <button class="menu-toggle" aria-label="Abrir menu"
-            onclick="document.querySelector('.navbar').classList.toggle('nav-active')">
+        <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menu">
             <i class="fa-solid fa-bars"></i>
         </button>
 
         <ul class="nav-links">
             <li><a href="cursos.html">Cursos</a></li>
             <li><a href="beneficios.html">Benefícios</a></li>
-            <li><a href="depoimentos.html">Depoimentos</a></li>
+            <li><a href="depoimentos.html" class="active-page">Depoimentos</a></li>
             <li><a href="sobre.html">Sobre</a></li>
         </ul>
 
-        <div class="nav-actions">
-            <a href="login.html" class="btn-login">Entrar</a>
-            <a href="cadastro.html" class="btn-cta">Começar Agora</a>
+        <div class="nav-actions" id="nav-actions">
         </div>
     </nav>
 
@@ -245,7 +242,7 @@
 
             <div class="testimonial-card">
                 <div class="card-top">
-                    <div class="stars" style="color: #F59E0B;">
+                    <div class="stars">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -276,7 +273,7 @@
                 <p class="testimonial-text">
                     "Fiz o curso técnico profissionalizante e gostei muito da didática do instrutor. O material
                     complementar em PDF ajuda bastante nas revisões pós-aula. Só acho que o módulo básico poderia ser um
-                    pouco mais dinâmico, mas o intermediário e avançado são fantásticos."
+                    pouque mais dinâmico, mas o intermediário e avançado são fantásticos."
                 </p>
                 <div class="user-info">
                     <img src="img/ft_perfil_dep12.jpg" alt="Carlos Eduardo" class="user-avatar">
@@ -289,7 +286,7 @@
 
             <div class="testimonial-card">
                 <div class="card-top">
-                    <div class="stars" style="color: #F59E0B;">
+                    <div class="stars">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -390,6 +387,62 @@
             <p>&copy; 2026 forma+. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        // 1. CONTROLE DO MENU HAMBÚRGUER (Sincronizado com as classes CSS)
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbar = document.querySelector('.navbar');
+        const navLinks = document.querySelector('.nav-links');
+        const navActions = document.querySelector('.nav-actions');
+
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', () => {
+                // Alterna a classe na navbar para o efeito mobile abrir/fechar
+                navbar.classList.toggle('nav-active');
+                navLinks.classList.toggle('active');
+                navActions.classList.toggle('active');
+
+                // Altera o ícone de barras para fechar (X)
+                const icon = mobileMenu.querySelector('i');
+                if (navbar.classList.contains('nav-active')) {
+                    icon.className = 'fa-solid fa-xmark';
+                } else {
+                    icon.className = 'fa-solid fa-bars';
+                }
+            });
+        }
+
+        // 2. VERIFICAÇÃO DE LOGIN ESTÁTICA
+        function renderNavbarActions() {
+            const navActionsContainer = document.getElementById('nav-actions');
+            if (!navActionsContainer) return;
+
+            const isLogged = localStorage.getItem('userLogged') === 'true';
+
+            if (isLogged) {
+                navActionsContainer.innerHTML = `
+                <div class="user-profile-nav">
+                    <img src="img/IMG_PERFIL.avif" alt="Foto de Perfil" class="nav-avatar">
+                    <a href="#" id="btn-logout" class="btn-logout">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
+                </div>
+            `;
+
+                document.getElementById('btn-logout').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.setItem('userLogged', 'false');
+                    window.location.href = 'index.html';
+                });
+
+            } else {
+                navActionsContainer.innerHTML = `
+                <a href="login.html" class="btn-login">Entrar</a>
+                <a href="cadastro.html" class="btn-cta">Começar Agora</a>
+            `;
+            }
+        }
+
+        renderNavbarActions();
+    </script>
 
 </body>
 

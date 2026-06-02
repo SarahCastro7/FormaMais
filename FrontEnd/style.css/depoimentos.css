@@ -1,23 +1,525 @@
+/* ================= CONFIGURAÇÕES GERAIS ================= */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 70px;
-}
-
-body {
-    margin: 0;
+    box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #F8FAFC;
-    /* Fundo suave para os cards brancos destacarem */
-    overflow-x: hidden;
 }
 
-/*--------------- NAVBAR ------------*/
+.info-cursos {
+    background-color: #f7f7f7;
+    color: #333333;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.main-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 10px;
+}
+
+.main-header h1 span {
+    color: #1c0068;
+}
+
+.main-header p {
+    color: #666666;
+    font-size: 1.05rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* ================= GRID DE CATEGORIAS E CARDS ================= */
+.grid-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 24px;
+    color: #ffffff;
+}
+
+.icon-tech,
+.icon-design,
+.icon-languages,
+.icon-business,
+.icon-marketing,
+.icon-technical,
+.icon-soft {
+    background: linear-gradient(90deg, #2181BD, #6DADD8) !important;
+    color: #ffffff !important;
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    color: #111111;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.card p {
+    color: #666666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.card a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+}
+
+.link-tech,
+.link-design,
+.link-languages,
+.link-business,
+.link-marketing,
+.link-technical,
+.link-soft {
+    color: #0b3d91;
+}
+
+.help-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #666666;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Garante o tamanho padrão e o formato de bolinha para a foto em qualquer página */
+.menu-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    padding: 2px;
+    border: 2px solid #2181BD;
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: inline-block;
+    /* Mantém o alinhamento correto do link */
+}
+
+.menu-avatar:hover {
+    transform: scale(1.05);
+}
+
+.menu-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Recorta a imagem proporcionalmente para não amassar */
+    display: block;
+}
+
+/* ================= GRID DE DEPOIMENTOS (NOVO) ================= */
+.testimonials-section {
+    background-color: #f7f7f7;
+    padding: 60px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonials-header {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 50px;
+}
+
+.testimonials-header h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 12px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #2181BD, #6DADD8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.testimonials-header p {
+    color: #666666;
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+}
+
+/* Resumo de Avaliações superiores */
+.rating-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background: #ffffff;
+    padding: 20px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.rating-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+}
+
+.rating-big {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1C2B3E;
+}
+
+.rating-stars {
+    color: #F59E0B;
+    margin: 4px 0;
+    font-size: 0.9rem;
+}
+
+.rating-item p {
+    font-size: 0.85rem;
+    color: #666666;
+    margin: 0;
+}
+
+.rating-divider {
+    width: 1px;
+    height: 50px;
+    background-color: #e2e8f0;
+}
+
+.testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.testimonial-card {
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.25s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.stars {
+    color: #F59E0B;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.quote-icon {
+    color: #E2E8F0;
+    font-size: 1.5rem;
+}
+
+.testimonial-text {
+    color: #4A5568;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-top: 1px solid #F1F5F9;
+    padding-top: 16px;
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-details h3 {
+    font-size: 0.95rem;
+    color: #1A202C;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.user-details span {
+    font-size: 0.8rem;
+    color: #718096;
+}
+
+/* ================= MODAIS ================= */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: #fff;
+    width: 90%;
+    max-width: 860px;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 14px;
+    padding: 22px;
+    position: relative;
+}
+
+.fechar {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-header {
+    margin-bottom: 22px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    color: #222;
+}
+
+.modal-header p {
+    margin-top: 6px;
+    color: #777;
+    font-size: 14px;
+}
+
+.cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.curso-card {
+    background: #fff;
+    border: 1px solid #ececec;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.curso-img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+}
+
+.curso-body {
+    padding: 14px;
+}
+
+.nivel {
+    display: inline-block;
+    background: #f3e8ff;
+    color: #7c3aed;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.curso-body h3 {
+    margin: 0;
+    font-size: 17px;
+    color: #111;
+}
+
+.curso-body p {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+}
+
+.curso-info {
+    display: flex;
+    gap: 14px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #666;
+}
+
+/* ================= MODAL DETALHES DO CURSO ================= */
+.detalhes-content {
+    background: #fff;
+    width: 90%;
+    max-width: 760px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 14px;
+    position: relative;
+}
+
+.detalhes-banner {
+    position: relative;
+}
+
+.banner-img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(132, 0, 255, .25), rgba(255, 0, 150, .45));
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.tag {
+    display: inline-block;
+    background: #fff;
+    color: #7c3aed;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+.banner-overlay h2 {
+    color: white;
+    margin-top: 10px;
+}
+
+.curso-meta {
+    display: flex;
+    gap: 18px;
+    padding: 20px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.secao {
+    padding: 20px;
+}
+
+.secao h3 {
+    margin-bottom: 12px;
+}
+
+.modulo {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 12px;
+}
+
+.acoes {
+    display: flex;
+    gap: 12px;
+    padding: 20px;
+}
+
+.btn-lista {
+    flex: 1;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.btn-comecar {
+    flex: 1;
+    border: none;
+    background: linear-gradient(90deg, #8b5cf6, #ec4899);
+    color: white;
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+/* ================= NAVBAR (DESKTOP) ================= */
 .navbar {
     display: flex;
     align-items: center;
@@ -34,6 +536,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    z-index: 1002;
 }
 
 .logo-icon {
@@ -49,6 +552,7 @@ body {
     font-size: 1.4rem;
     font-weight: 800;
     color: #1C2B3E;
+    text-decoration: none;
 }
 
 .logo-text span {
@@ -71,14 +575,41 @@ body {
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active-page {
     color: #1C2B3E;
+    font-weight: 600;
 }
 
 .nav-actions {
     display: flex;
     align-items: center;
     gap: 25px;
+    z-index: 1002;
+}
+
+.user-profile-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.nav-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.btn-logout {
+    text-decoration: none;
+    color: #ef4444;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .btn-login {
@@ -104,198 +635,21 @@ body {
 }
 
 .menu-toggle {
-    display: none;
+    display: none !important;
     background: none;
     border: none;
     font-size: 1.5rem;
     color: #1C2B3E;
     cursor: pointer;
+    z-index: 1002;
 }
 
-/*--------------- SEÇÃO DE DEPOIMENTOS ------------*/
-.testimonials-section {
-    width: 100%;
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 0 5%;
-}
-
-.testimonials-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.testimonials-header h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #1C2B3E;
-    margin-bottom: 12px;
-}
-
-.gradient-text {
-    background: linear-gradient(90deg, #2181BD 0%, #6DADD8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-}
-
-.testimonials-header p {
-    color: #64748B;
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 30px;
-}
-
-/* Nova barra de métricas (Preenchimento de Espaço) */
-.rating-summary {
-    display: inline-flex;
-    align-items: center;
-    background: white;
-    padding: 20px 40px;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    gap: 30px;
-    text-align: left;
-    border: 1px solid #E2E8F0;
-}
-
-.rating-big {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #1C2B3E;
-    display: block;
-    line-height: 1;
-}
-
-.rating-stars {
-    color: #F59E0B;
-    font-size: 0.85rem;
-    margin: 4px 0;
-}
-
-.rating-item p {
-    font-size: 0.85rem;
-    color: #64748B;
-    margin: 0;
-}
-
-.rating-divider {
-    width: 1px;
-    height: 50px;
-    background-color: #E2E8F0;
-}
-
-/* GRID DOS TESTEMUNHOS - CORRIGIDO */
-.testimonials-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 30px;
-    align-items: stretch;
-    /* Garante que todos os cards na mesma linha tenham o mesmo tamanho */
-}
-
-/* CARD INDIVIDUAL - CORRIGIDO */
-.testimonial-card {
-    background-color: #FFFFFF;
-    border-radius: 16px;
-    padding: 35px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* Empurra o rodapé do aluno sempre para a base */
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-    border: 1px solid #E2E8F0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Borda elegante na lateral esquerda do card ativo/focado */
-.testimonial-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(180deg, #2181BD 0%, #6DADD8 100%);
-    border-radius: 16px 0 0 16px;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(33, 129, 189, 0.06);
-}
-
-.testimonial-card:hover::before {
-    opacity: 1;
-}
-
-.card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.stars {
-    color: #F59E0B;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-}
-
-.quote-icon {
-    font-size: 1.5rem;
-    color: #6DADD8;
-    opacity: 0.4;
-}
-
-.testimonial-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #475569;
-    margin-bottom: 30px;
-    flex-grow: 1;
-    /* Faz o campo de texto expandir para ocupar a diferença de tamanho */
-    font-style: italic;
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    border-top: 1px solid #F1F5F9;
-    padding-top: 20px;
-}
-
-.user-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #E2E8F0;
-}
-
-.user-details h3 {
-    font-size: 1rem;
-    color: #1C2B3E;
-    font-weight: 700;
-    margin-bottom: 2px;
-}
-
-.user-details span {
-    font-size: 0.85rem;
-    color: #64748B;
-    font-weight: 500;
-}
-
-/*---------------- FOOTER -----------------*/
+/* ================= FOOTER ================= */
 .footer {
     background-color: #0B1320;
     color: #fff;
-    padding: 60px 5% 30px;
-    margin-top: 80px;
+    padding: 80px 8% 40px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
 .footer-container {
@@ -373,7 +727,7 @@ body {
 }
 
 .footer-bottom {
-    margin-top: 50px;
+    margin-top: 60px;
     padding-top: 30px;
     border-top: 1px solid #1E293B;
     text-align: center;
@@ -381,63 +735,61 @@ body {
     font-size: 0.85rem;
 }
 
-/* ==========================================================================
-   REGRAS DE RESPONSIVIDADE (MEDIA QUERIES)
-   ========================================================================== */
-
-@media (max-width: 992px) {
-    .testimonials-header h2 {
-        font-size: 2.1rem;
-    }
-
+/* ================= MEDIA QUERIES (RESPONSIVIDADE AJUSTADA) ================= */
+@media (max-width: 1024px) {
     .footer-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
     }
 }
 
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block;
+        display: block !important;
     }
 
-    .nav-links,
+    .navbar {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        order: 3;
+        background-color: #fff;
+        padding: 20px 0 10px 0;
+        gap: 15px;
+        text-align: center;
+    }
+
     .nav-actions {
         display: none;
-    }
-
-    .navbar.nav-active {
         flex-direction: column;
+        width: 100%;
+        order: 4;
+        background-color: #fff;
+        padding: 10px 0 20px 0;
         gap: 15px;
-    }
-
-    .navbar.nav-active .nav-links {
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        width: 100%;
-        gap: 15px;
-        padding: 10px 0;
-        border-top: 1px solid #f0f0f0;
     }
 
-    .navbar.nav-active .nav-actions {
-        display: flex;
-        flex-direction: column;
+    .nav-links.active,
+    .nav-actions.active {
+        display: flex !important;
+    }
+
+    .btn-cta {
         width: 100%;
-        gap: 12px;
         text-align: center;
     }
 
-    .navbar.nav-active .btn-cta {
-        width: 100%;
-    }
-
+    /* Ajustes Mobile para Depoimentos */
     .rating-summary {
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
         padding: 20px;
-        width: 100%;
-        text-align: center;
     }
 
     .rating-divider {
@@ -449,17 +801,30 @@ body {
         grid-template-columns: 1fr;
     }
 
+    /* Correções estruturais adicionais para Cursos e Modais */
+    .grid-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .cursos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content,
+    .detalhes-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .modal-header h2 {
+        font-size: 24px;
+    }
+
     .footer-container {
         grid-template-columns: 1fr;
-        text-align: center;
     }
 
-    .footer-brand .logo,
-    .social-links {
-        justify-content: center;
-    }
-
-    .footer-desc {
-        margin: 0 auto 20px;
+    .info-cursos {
+        padding: 40px 15px;
     }
 }
