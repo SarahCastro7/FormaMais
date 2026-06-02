@@ -1,268 +1,612 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forma+ Perfil</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css/perfil.css">
+    <title>forma+ | Meu Perfil & Matches</title>
+    <link rel="stylesheet" href="style.css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Ajustes da Navbar para bater com as fotos enviadas */
+        .user-profile-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #cbd5e1;
+            /* Cor cinza do avatar padrão */
+        }
+
+        .btn-logout {
+            text-decoration: none;
+            color: #ef4444;
+            /* Vermelho suave idêntico ao print */
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .btn-logout:hover {
+            color: #dc2626;
+        }
+
+        /* Container Principal do Dashboard */
+        .profile-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Seção More Match */
+        .match-section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .badge-exclusive {
+            background-color: #2181BD;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .match-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 968px) {
+            .match-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Recursos Laterais */
+        .features-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .icon-blue {
+            background-color: #2563eb;
+        }
+
+        .icon-cyan {
+            background-color: #06b6d4;
+        }
+
+        .icon-orange {
+            background-color: #f97316;
+        }
+
+        .feature-text h3 {
+            font-size: 1.1rem;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .feature-text p {
+            font-size: 0.9rem;
+            color: #64748b;
+            line-height: 1.4;
+        }
+
+        /* Contador de Matches */
+        .recent-matches-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .recent-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .recent-icon {
+            color: #2563eb;
+            font-size: 1.2rem;
+        }
+
+        .recent-header h4 {
+            margin: 0;
+            color: #1e293b;
+            font-size: 1rem;
+        }
+
+        .recent-header p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .company-mini-list {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .company-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Cartões Interativos Estilo Tinder */
+        .card-stack {
+            position: relative;
+            height: 450px;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .match-card {
+            position: absolute;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            box-sizing: border-box;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            transform-origin: bottom center;
+        }
+
+        .match-card.swipe-left {
+            transform: translateX(-150%) rotate(-15deg);
+            opacity: 0;
+        }
+
+        .match-card.swipe-right {
+            transform: translateX(150%) rotate(15deg);
+            opacity: 0;
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+        }
+
+        .match-badge {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .card-logo {
+            width: 70px;
+            height: 70px;
+            background-color: #2181BD;
+            color: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px auto;
+        }
+
+        .card-info {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .card-info h2 {
+            font-size: 1.4rem;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .card-info p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .card-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        .card-details div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-details i {
+            color: #64748b;
+            width: 16px;
+        }
+
+        .skills-container {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+
+        .skill-tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-action {
+            flex: 1;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-pass {
+            background: white;
+            border: 1px solid #cbd5e1;
+            color: #475569;
+        }
+
+        .btn-pass:hover {
+            background: #f8fafc;
+            border-color: #94a3b8;
+        }
+
+        .btn-interest {
+            background: #2181BD;
+            border: none;
+            color: white;
+        }
+
+        .btn-interest:hover {
+            background: #1a6796;
+        }
+
+        .no-cards-message {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            color: #64748b;
+            padding: 20px;
+        }
+
+        .no-cards-message i {
+            font-size: 3.5rem;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        /* Estilos específicos para o menu mobile aberto conforme as imagens */
+        @media (max-width: 768px) {
+            .navbar.nav-active .nav-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 25px 0;
+            }
+
+            /* Força os elementos de perfil para dentro da lista vertical no mobile */
+            .navbar.nav-active .nav-actions {
+                display: flex !important;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                width: 100%;
+                margin-top: 10px;
+                border-top: 1px solid #e2e8f0;
+                padding-top: 20px;
+            }
+
+            .nav-avatar {
+                width: 55px;
+                height: 55px;
+            }
+
+            .btn-logout {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
+
     <nav class="navbar">
         <div class="logo">
             <div class="logo-icon">F+</div>
-            <span class="logo-text">forma<span>+</span></span>
+            <a href="index.html" class="logo-text"
+                style="text-decoration: none; color: inherit;">forma<span>+</span></a>
         </div>
+
+        <button class="menu-toggle" aria-label="Abrir menu" id="mobile-menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
 
         <ul class="nav-links">
             <li><a href="cursos.html">Cursos</a></li>
-            <li><a href="index.html#beneficios">Benefícios</a></li>
+            <li><a href="beneficios.html">Benefícios</a></li>
             <li><a href="depoimentos.html">Depoimentos</a></li>
             <li><a href="sobre.html">Sobre</a></li>
         </ul>
 
-        <div class="nav-actions">
-            <button class="btn-login hidden" id="btnLogin">Entrar</button>
-            <a href="cadastro.html" class="btn-cta hidden" id="btnCta">Começar Agora</a>
-
-            <div class="menu-avatar" id="menuAvatar" style="cursor: pointer;">
-                <img src="img/IMG_PERFIL.avif"
-                    alt="Perfil" class="user-img" id="navUserImg">
+        <div class="nav-actions" id="nav-actions">
+            <div class="user-profile-nav">
+                <img src="img/IMG_PERFIL.avif" alt="Foto de Perfil" class="nav-avatar"
+                    onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'">
+                <a href="index.html" id="btn-logout" class="btn-logout">Sair <i
+                        class="fa-solid fa-right-from-bracket"></i></a>
             </div>
         </div>
     </nav>
 
-    <div class="modal hidden" id="profileModal">
-        <div class="modal-overlay" id="modalOverlay"></div>
+    <main class="profile-container">
 
-        <div class="card" id="viewCard">
-            <button class="btn-close" id="closeView">&times;</button>
-
-            <div class="header">
-                <div class="avatar">
-                    <img src="img/IMG_PERFIL.avif"
-                        alt="Foto" class="user-img view-avatar-img">
-                </div>
-                <h2 id="txt-name">Ana Carolina Silva</h2>
-                <p class="subtitle" id="txt-role">Desenvolvedora em Formação</p>
-                <p class="user-bio" id="txt-bio"
-                    style="font-size: 0.9rem; color: #64748B; margin-top: 8px; max-width: 280px; text-align: center;">
-                    Apaixonada por tecnologia e criando soluções web incríveis.</p>
+        <div class="match-section-title">
+            <div class="badge-exclusive">
+                <i class="fa-solid fa-bolt"></i> Nosso Diferencial Exclusivo
             </div>
-
-            <div class="stats">
-                <div class="box purple"><span class="num">12</span><span class="label">Cursos</span></div>
-                <div class="box blue"><span class="num">240h</span><span class="label">Estudadas</span></div>
-                <div class="box pink"><span class="num" id="stat-matches">8</span><span class="label">Matches</span>
-                </div>
-            </div>
-
-            <div class="info">
-                <div class="item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span id="txt-location">São Paulo, SP</span>
-                </div>
-                <div class="item">
-                    <i class="fa-regular fa-envelope"></i>
-                    <span id="txt-email">ana.silva@email.com</span>
-                </div>
-                <div class="item">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <span id="txt-specialty">Front-End</span>
-                </div>
-            </div>
-
-            <div class="skills">
-                <h3>Habilidades</h3>
-                <div class="tags" id="view-skills-tags">
-                    <span class="tag">React</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">Design</span>
-                    <span class="tag">Inglês</span>
-                </div>
-            </div>
-
-            <button class="btn-main" id="goEdit">Editar Perfil</button>
-        </div>
-
-        <div class="card hidden" id="editCard">
-            <button class="btn-close" id="closeEdit">&times;</button>
-
-            <form id="editForm" onsubmit="event.preventDefault();">
-                <div class="header">
-                    <div class="avatar is-editing">
-                        <img src="img/IMG_PERFIL.avif"
-                            alt="Foto" class="user-img edit-avatar-img">
-                        <label class="cam-icon" for="fileInput">
-                            <i class="fa-solid fa-camera"></i>
-                        </label>
-                        <input type="file" id="fileInput" accept="image/*" style="display: none;">
-                    </div>
-
-                    <div class="input-box" style="margin-top: 10px; width: 100%;">
-                        <label
-                            style="font-size: 0.8rem; font-weight: 600; color: #475569; display:block; text-align:left;">Nome
-                            Completo</label>
-                        <input type="text" id="in-name" value="Ana Carolina Silva" required
-                            style="width: 100%; padding: 8px; border: 1px solid #CBD5E1; border-radius: 6px;">
-                    </div>
-                    <div class="input-box" style="margin-top: 10px; width: 100%;">
-                        <label
-                            style="font-size: 0.8rem; font-weight: 600; color: #475569; display:block; text-align:left;">Cargo
-                            / Status</label>
-                        <input type="text" id="in-role" value="Desenvolvedora em Formação"
-                            style="width: 100%; padding: 8px; border: 1px solid #CBD5E1; border-radius: 6px;">
-                    </div>
-                    <div class="input-box" style="margin-top: 10px; width: 100%;">
-                        <label
-                            style="font-size: 0.8rem; font-weight: 600; color: #475569; display:block; text-align:left;">Descrição
-                            / Biografia</label>
-                        <textarea id="in-bio"
-                            style="width: 100%; padding: 8px; border: 1px solid #CBD5E1; border-radius: 6px; resize: none; font-family: inherit; font-size: 0.9rem;"
-                            rows="2">Apaixonada por tecnologia e criando soluções web incríveis.</textarea>
-                    </div>
-                </div>
-
-                <div class="fields" style="margin-top: 15px;">
-                    <div class="input-inline"
-                        style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                        <i class="fa-solid fa-location-dot" style="width: 20px;"></i>
-                        <input type="text" id="in-location" value="São Paulo, SP"
-                            style="flex: 1; padding: 6px; border: 1px solid #CBD5E1; border-radius: 6px;">
-                    </div>
-
-                    <div class="input-inline"
-                        style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                        <i class="fa-regular fa-envelope" style="width: 20px;"></i>
-                        <input type="email" id="in-email" value="ana.silva@email.com" required
-                            style="flex: 1; padding: 6px; border: 1px solid #CBD5E1; border-radius: 6px;">
-                    </div>
-
-                    <div class="input-inline"
-                        style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                        <i class="fa-solid fa-graduation-cap" style="width: 20px;"></i>
-                        <select id="in-specialty"
-                            style="flex: 1; padding: 6px; border: 1px solid #CBD5E1; border-radius: 6px; background: white;">
-                            <option value="Front-End">Front-End (Tecnologia)</option>
-                            <option value="Back-End">Back-End (Tecnologia)</option>
-                            <option value="Marketing Digital">Marketing Digital</option>
-                            <option value="Design UX/UI">Design UX/UI</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="skills">
-                    <h3>Habilidades (Separadas por vírgula)</h3>
-                    <input type="text" id="in-skills" value="React, JavaScript, Design, Inglês"
-                        style="width: 100%; padding: 8px; border: 1px solid #CBD5E1; border-radius: 6px; font-size: 0.9rem;">
-                </div>
-
-                <div class="actions" style="display: flex; gap: 10px; margin-top: 20px;">
-                    <button type="button" class="btn-sub" id="cancelBtn" style="flex: 1;">Cancelar</button>
-                    <button type="submit" class="btn-main" id="saveBtn" style="flex: 1;">
-                        <i class="fa-solid fa-check"></i> Salvar
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <section class="secao-match">
-        <div class="cabecalho">
-            <span class="tag-topo"><i class="fa-solid fa-bolt"></i> Nosso Diferencial Exclusivo</span>
-            <h1>More Match - Seu Match Profissional</h1>
-            <p class="descricao">
-                Sistema inteligente que conecta você com empresas enquanto estuda. À medida que completa cursos, recebe
-                matches com vagas compatíveis com suas habilidades!
+            <h1 style="font-size: 2.2rem; color: #1e293b; margin-bottom: 10px;">More Match - Seu Match Profissional</h1>
+            <p style="color: #64748b; max-width: 700px; margin: 0 auto; line-height: 1.5;">
+                Sistema inteligente que conecta você com empresas enquanto estuda. À medida que completa os cursos,
+                recebe matches com vagas compatíveis com suas habilidades!
             </p>
         </div>
 
-        <div class="conteudo">
-            <div class="coluna-esquerda">
-                <div class="item-beneficio" id="beneficio-match">
-                    <div class="icone-box rosa"><i class="fa-regular fa-heart"></i></div>
-                    <div class="texto-beneficio">
+        <div class="match-grid">
+
+            <div class="features-sidebar">
+                <div class="feature-item">
+                    <div class="feature-icon icon-blue"><i class="fa-solid fa-heart"></i></div>
+                    <div class="feature-text">
                         <h3>Match Inteligente</h3>
-                        <p>Algoritmo analisa suas habilidades e conecta você com vagas perfeitas para seu perfil</p>
+                        <p>Algoritmo analisa suas habilidades e conecta você com vagas perfeitas para seu perfil.</p>
                     </div>
                 </div>
 
-                <div class="item-beneficio" id="beneficio-evolucao">
-                    <div class="icone-box azul"><i class="fa-solid fa-arrow-trend-up"></i></div>
-                    <div class="texto-beneficio">
+                <div class="feature-item">
+                    <div class="feature-icon icon-cyan"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="feature-text">
                         <h3>Evolução em Tempo Real</h3>
-                        <p>Cada curso concluído aumenta seu match com novas oportunidades</p>
+                        <p>Cada curso concluído aumenta seu match com novas oportunidades.</p>
                     </div>
                 </div>
 
-                <div class="item-beneficio" id="beneficio-conexao">
-                    <div class="icone-box laranja"><i class="fa-solid fa-building"></i></div>
-                    <div class="texto-beneficio">
+                <div class="feature-item">
+                    <div class="feature-icon icon-orange"><i class="fa-solid fa-building"></i></div>
+                    <div class="feature-text">
                         <h3>Conexão Direta</h3>
-                        <p>Candidatura simplificada - um clique para se conectar com empresas</p>
+                        <p>Candidatura simplificada - um clique para se conectar com empresas.</p>
                     </div>
                 </div>
 
-                <div class="card-recentes">
-                    <div class="topo-recentes">
-                        <div class="icone-raio"><i class="fa-solid fa-bolt"></i></div>
+                <div class="recent-matches-card">
+                    <div class="recent-header">
+                        <i class="fa-solid fa-bolt recent-icon"></i>
                         <div>
                             <h4>Matches Recentes</h4>
-                            <span id="texto-empresas">7 empresas interessadas</span>
+                            <p><span id="match-counter-value">14</span> empresas interessadas</p>
                         </div>
                     </div>
-                    <div class="logos-recentes" id="container-logos">
-                        <span class="mini-logo">📈</span>
-                        <span class="mini-logo">🚀</span>
-                        <span class="mini-logo">🏢</span>
-                        <span class="mini-logo">🍇</span>
-                        <span class="mini-logo">🛍️</span>
-                        <span class="contador-mais" id="live-counter">+12</span>
+                    <div class="company-mini-list">
+                        <div class="company-avatar" style="color: #2563eb;"><i class="fa-solid fa-chart-simple"></i>
+                        </div>
+                        <div class="company-avatar" style="color: #ec4899;"><i class="fa-solid fa-rocket"></i></div>
+                        <div class="company-avatar" style="color: #16a34a;"><i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div class="company-avatar" style="color: #a855f7;"><i class="fa-solid fa-brain"></i></div>
+                        <div class="company-avatar" style="color: #eab308;"><i class="fa-solid fa-shop"></i></div>
+                        <span id="extra-counter-label" style="margin-left: 5px; color: #64748b;">+14</span>
                     </div>
                 </div>
             </div>
 
-            <div class="coluna-direita">
-                <div class="card-vaga" id="cardVaga">
-                    <span class="tag-match" id="vagaMatchPercent">92% Match</span>
-
-                    <div class="empresa-logo" id="logoPrincipal"
-                        style="background-color: #2181BD; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; border-radius: 12px; width: 60px; height: 60px;">
-                        <i class="fa-solid fa-code" id="vagaIcon"></i>
+            <div class="card-stack" id="card-stack-container">
+                <div class="match-card" id="card-1">
+                    <div class="card-top">
+                        <span class="match-badge">50% Match</span>
                     </div>
-
-                    <h2 class="titulo-vaga" id="vagaTitle">Carregando Vaga Perfeita...</h2>
-                    <span class="nome-empresa" id="vagaCompany"><i class="fa-solid fa-building"></i> Tech
-                        Solutions</span>
-
-                    <div class="detalhes-vaga">
-                        <p><i class="fa-solid fa-location-dot"></i> <span id="vagaLocation">Remoto</span></p>
-                        <p class="salario"><i class="fa-solid fa-dollar-sign"></i> <span id="vagaSalary">R$ 4.500</span>
-                        </p>
+                    <div class="card-logo">
+                        <i class="fa-solid fa-code"></i>
                     </div>
-
-                    <div class="skills-section">
-                        <span class="label-skills">Skills necessárias:</span>
-                        <div class="lista-skills" id="vagaSkillsTags">
+                    <div class="card-info">
+                        <h2>Desenvolvedor Front-End Junior</h2>
+                        <p>AlphaTech Systems</p>
+                    </div>
+                    <div class="card-details">
+                        <div><i class="fa-solid fa-location-dot"></i> São Paulo, SP (Híbrido)</div>
+                        <div><i class="fa-solid fa-dollar-sign"></i> R$ 4.200</div>
+                        <div><i class="fa-solid fa-gear"></i> Skills necessárias:</div>
+                        <div class="skills-container">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">CSS</span>
                         </div>
                     </div>
+                    <div class="card-actions">
+                        <button class="btn-action btn-pass" onclick="swipeCard('card-1', 'left')"><i
+                                class="fa-solid fa-xmark"></i> Passar</button>
+                        <button class="btn-action btn-interest" onclick="swipeCard('card-1', 'right')"><i
+                                class="fa-solid fa-heart"></i> Interessado</button>
+                    </div>
+                </div>
 
-                    <div class="acoes-vaga">
-                        <button class="btn-recusar" id="btnPassar"><i class="fa-solid fa-xmark"></i> Passar</button>
-                        <button class="btn-aceitar" id="btnInteressado"><i class="fa-regular fa-heart"></i>
-                            Interessado</button>
+                <div class="match-card" id="card-2" style="transform: scale(0.95) translateY(10px); z-index: -1;">
+                    <div class="card-top">
+                        <span class="match-badge" style="background-color: #f0fdf4; color: #16a34a;">85% Match</span>
+                    </div>
+                    <div class="card-logo" style="background-color: #8E44AD;">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <div class="card-info">
+                        <h2>UI/UX Designer Junior</h2>
+                        <p>Beta Creative Studio</p>
+                    </div>
+                    <div class="card-details">
+                        <div><i class="fa-solid fa-location-dot"></i> Remoto</div>
+                        <div><i class="fa-solid fa-dollar-sign"></i> R$ 3.800</div>
+                        <div><i class="fa-solid fa-gear"></i> Skills necessárias:</div>
+                        <div class="skills-container">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Wireframing</span>
+                            <span class="skill-tag">UI Design</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-action btn-pass" onclick="swipeCard('card-2', 'left')"><i
+                                class="fa-solid fa-xmark"></i> Passar</button>
+                        <button class="btn-action btn-interest" onclick="swipeCard('card-2', 'right')"><i
+                                class="fa-solid fa-heart"></i> Interessado</button>
                     </div>
                 </div>
             </div>
+
         </div>
-    </section>
+    </main>
 
-    <script src="forma.js/perfil.js"></script>
+    <script>
+        // --- Controle Responsivo da Navbar Mobile Aberta/Fechada ---
+        const menuToggleBtn = document.getElementById('mobile-menu-btn');
+        const navbar = document.querySelector('.navbar');
+
+        if (menuToggleBtn) {
+            menuToggleBtn.addEventListener('click', () => {
+                navbar.classList.toggle('nav-active');
+                const icon = menuToggleBtn.querySelector('i');
+                icon.className = navbar.classList.contains('nav-active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+            });
+        }
+
+        // --- Logout handler ---
+        document.getElementById('btn-logout').addEventListener('click', () => {
+            localStorage.setItem('userLogged', 'false');
+        });
+
+        // --- Sistema Interativo More Match ---
+        let currentRemainingCards = 2;
+        let matchCount = 14;
+
+        function swipeCard(cardId, direction) {
+            const card = document.getElementById(cardId);
+            if (!card) return;
+
+            if (direction === 'left') {
+                card.classList.add('swipe-left');
+            } else if (direction === 'right') {
+                card.classList.add('swipe-right');
+            }
+
+            currentRemainingCards--;
+
+            // Diminui a contagem real baseada na ação
+            if (matchCount > 0) {
+                matchCount--;
+                document.getElementById('match-counter-value').innerText = matchCount;
+                document.getElementById('extra-counter-label').innerText = `+${matchCount}`;
+            }
+
+            setTimeout(() => {
+                card.remove();
+                const nextCard = document.getElementById('card-2');
+                if (nextCard) {
+                    nextCard.style.transform = 'scale(1) translateY(0)';
+                    nextCard.style.zIndex = '1';
+                }
+
+                if (currentRemainingCards === 0) {
+                    const stackContainer = document.getElementById('card-stack-container');
+                    stackContainer.innerHTML = `
+                        <div class="no-cards-message">
+                            <i class="fa-solid fa-circle-check" style="color: #16a34a;"></i>
+                            <h3 style="color: #1e293b; margin-bottom: 5px;">Tudo pronto por hoje!</h3>
+                            <p>Você revisou todas as vagas recomendadas para o seu nível atual.</p>
+                        </div>
+                    `;
+                }
+            }, 400);
+        }
+    </script>
 </body>
 
 </html>
