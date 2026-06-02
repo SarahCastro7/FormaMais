@@ -58,7 +58,7 @@ class FormaMaisService {
 
     async patch(tab_usuario, data) {
         try {
-            const atual = await this.getBytab_usuario(tab_usuario);
+            const atual = await this.getBy_usuario(_usuario);
 
             if (!atual) {
                 throw new Error('Registro não encontrado');
@@ -67,8 +67,8 @@ class FormaMaisService {
             const nome = data.nome ?? atual.nome;
 
             const result = await pool.query(
-                'UPDATE tab_usuario SET nome = $1 WHERE id_usuario = $2 RETURNING *', // ✅ corrig_usuarioo
-                [nome, id_usuario]
+                'UPDATE tab_usuario SET nome = $1 WHERE _usuario = $2 RETURNING *', // ✅ corrig_usuarioo
+                [nome, _usuario]
             );
             return result.rows[0];
         } catch (error) {

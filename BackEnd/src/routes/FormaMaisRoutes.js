@@ -18,6 +18,9 @@ FormaMaisRoute.get('/', async (req, res) => {
 FormaMaisRoute.get('/:id', async (req, res) => {
     try {
         const forma = await formaService.getById(req.params.id);
+
+        if (!forma) return res.status(404).json({ message: 'Não encontrado' }); // ✅
+
         res.json(forma);
     } catch (error) {
         console.error('Erro ao buscar forma por ID:', error);
@@ -40,6 +43,9 @@ FormaMaisRoute.post('/', async (req, res) => {
 FormaMaisRoute.put('/:id', async (req, res) => {
     try {
         const forma = await formaService.update(req.params.id, req.body);
+
+        if (!forma) return res.status(404).json({ message: 'Não encontrado' }); // ✅
+
         res.json(forma);
     } catch (error) {
         console.error('Erro ao atualizar forma:', error);
@@ -51,6 +57,9 @@ FormaMaisRoute.put('/:id', async (req, res) => {
 FormaMaisRoute.patch('/:id', async (req, res) => {
     try {
         const forma = await formaService.patch(req.params.id, req.body);
+
+        if (!forma) return res.status(404).json({ message: 'Não encontrado' }); // ✅
+
         res.json(forma);
     } catch (error) {
         console.error('Erro ao atualizar parcialmente a forma:', error);
@@ -62,6 +71,9 @@ FormaMaisRoute.patch('/:id', async (req, res) => {
 FormaMaisRoute.delete('/:id', async (req, res) => {
     try {
         const forma = await formaService.delete(req.params.id);
+
+        if (!forma) return res.status(404).json({ message: 'Não encontrado' }); // ✅
+
         res.json(forma);
     } catch (error) {
         console.error('Erro ao excluir forma:', error);
