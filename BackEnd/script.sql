@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS public.tab_cursos
 );
 
 //------ tab  de cursos
-CREATE TABLE IF NOT EXISTS public.tab_usuario
+CREATE TABLE IF NOT EXISTS public.tab_usuarios
 (
     id_usuario uuid NOT NULL DEFAULT uuid_generate_v4(),
     nome_usuario text COLLATE pg_catalog."default" NOT NULL,
