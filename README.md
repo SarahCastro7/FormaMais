@@ -15,7 +15,7 @@ A plataforma conecta aprendizado, experiência profissional simulada e empregabi
 - Luiza Souza  - Função/Cargo, : Desenvolvedor Frontend , Backend
 - Sarah Castro - Função/Cargo, : Desenvolvedor Backend
 - Valeria Vasquez - Função/Cargo, : Desenvolvedor Frontend, Backend 
-- Thayla Pureza - Função/Cargo, : UX/UI Designer
+- Thayla Pureza - Função/Cargo, : UI/UX Designer
 
 ---
 
